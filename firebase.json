@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "scmapptesting",
+    "public": "dist/ng-demo-deploy",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+<section class="add-vendor">
+
+  <section class="breadcrumb-pagination">
+    <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+    <ul class="breadcrumb">
+      <li><a href="#">List of Business Requirement</a></li>
+      <li><a href="#">Add Requirement</a></li>
+    </ul>
+  </section>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+    <div class="section-header">
+      <h2 class="section-header-heading">Create Business Requirement</h2>
+    </div>
+
+    <div class="content-body">
+      <div class="content">
+        <mat-grid-list cols="6" rowHeight="77px" >
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="DocumentName">Business Requirement Name *</label>
+            <input id="DocumentName" required name="DocumentName" formControlName="DocumentName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['DocumentName'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="6" rowHeight="77px" >
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="Description">Description</label>
+            <input id="Description" name="Description" formControlName="Description" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['Description'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="6" rowHeight="77px" >
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="uploadDocument">Upload Document *</label>
+            <input type="file" multiple id="uploadDocument" required name="uploadDocument"  (change)="uploadMultiFile($event)"  formControlName="uploadDocument" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['uploadDocument'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+
+      </div>
+    </div>
+    <div class="bottom-buttons">
+      <button type="button" (click)="goBack()" class="white-button">Cancel</button>
+      <button type="button" (click)="onSubmit()" class="blue-button">Submit</button>
+      <button type="button" (click)="submitSend()" class="blue-button">Submit & Send</button>
+    </div>
+  </form>
+</section>

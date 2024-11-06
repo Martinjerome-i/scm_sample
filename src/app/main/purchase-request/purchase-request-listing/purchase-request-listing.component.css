@@ -1,0 +1,98 @@
+::ng-deep  .mat-mdc-tab-labels  {
+  margin-left:25px !important;
+}
+
+::ng-deep  .mat-mdc-tab .mdc-tab__text-label {
+  font-weight: 700 !important;
+  line-height: 20px !important;
+}
+
+
+/* anchor tag in all table */
+.content-table-data a{
+text-decoration: none;
+display: inline-flex;
+height: 20px;
+justify-content: center;
+align-items: center;
+gap: 4px;
+flex-shrink: 0;
+color: #013397;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; 
+letter-spacing: 0.1px;
+}
+
+/* Checklist table */
+.table-scroll{
+display: table-cell;
+overflow-x: auto;
+width: 110%;
+white-space: nowrap;
+}
+
+.checklist .content-table table{
+width: 250%;
+border-collapse: collapse;
+}
+
+/* Filter menu in checklist */
+
+.checklist .filter-menu span{
+display: inline-flex;
+width: 260px;
+display: flex;
+border: 1px solid #D9DBE9;
+border-radius: 4px;
+margin-right: 70px;
+margin-bottom: 10px;
+align-items: center;
+}
+
+.checklist .filter-menu span input{
+padding-left: 10px;
+}
+
+.checklist .filter-menu span a{
+display: inline-flex;
+align-items: center;
+padding-left: 35px;
+}
+
+.checklist .filter-menu span.search a{
+display: inline-flex;
+align-items: center;
+padding-left: 10px;
+}
+
+/* Status */
+
+.status{
+padding: 2px 4px;
+border-radius: 25px;
+}
+
+.status.approved{
+background: #E5FAEC;
+color: #00702A;
+}
+
+.status.in-process{
+color: #192A3E;
+border: 1px solid #D9DBE9;
+background: #F2F2F2;
+}
+
+.status.new{
+background: #D6E4FF;
+color: #013397;
+}
+
+.status.draft{
+color: #192A3E;
+border: 1px solid #D9DBE9;
+background: #F2F2F2;
+}
+

@@ -1,0 +1,40 @@
+<section class="checklist">
+  <div class="section-header">
+    <h2 class="section-header-heading">List of questions</h2>
+    <div class="section-header-buttons">
+      <button class="white-small-button" (click)="panel1.toggle()"><img src="assets/filter.png" alt="filter-icon">Filter</button>
+    </div>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel #panel1 [hideToggle]="true">
+      <div class="filter-menu">
+        <span>
+            <a href="#" ><img src="assets/Icon.png" alt=""></a>
+            <input type="text" placeholder="Question Name">
+        </span>
+        <span>
+            <input type="text" placeholder="Select question company">
+            <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+        </span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="question-box" *ngFor="let i of checklistQuestionList">
+    <div class="question">
+      <input type="checkbox" class="selectBoxDesign" placeholder="Checkbox Option" />
+      <p>{{ i.QuestionTitle }} <span>*</span></p>
+    </div>
+    <div class="answer">
+      <input *ngIf="i.QuestionTypeID == 1" class="inputField" type="text">
+      <textarea *ngIf="i.QuestionTypeID == 2" class="inputField" style="height: 200px;"></textarea>
+      <div *ngFor="let option of i.Options">
+        <input *ngIf="i.QuestionTypeID == 3" class="optionDesign" type="radio" placeholder="Radio Option" />
+        <input *ngIf="i.QuestionTypeID == 4" class="optionDesign" type="checkbox" placeholder="Checkbox Option" />
+        <label class="input-label">{{ option.QuestionValue }}</label>
+      </div>
+      <input *ngIf="i.QuestionTypeID == 5" class="inputField" type="file">
+      <input *ngIf="i.QuestionTypeID == 6" class="inputField" type="date">
+      <input *ngIf="i.QuestionTypeID == 7" class="inputField" type="datetime-local">
+    </div>
+  </div>
+</section>

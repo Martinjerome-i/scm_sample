@@ -1,0 +1,364 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: SF Pro Display;
+    src: url(assets/fonts/SFPRODISPLAYREGULAR.OTF) format("opentype");
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-style: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'SF Pro Display', sans-serif;
+
+}
+
+body{
+    height:100vh;
+}
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+/* Presets */
+
+
+.section-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    align-items:center;
+    padding: 5px 20px 15px 20px;
+    margin-top: 0%;
+    border-top: 1px solid #D9DBE9;
+}
+.section-header-heading{
+    color: #192A3E;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 4px;
+    text-wrap: nowrap;
+    padding-top: 5px;
+}
+.section-sub-heading{
+    color: #192A3E;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 4px;
+    text-wrap: nowrap;
+}
+
+.section-header-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-top: 7px;
+}
+.blue-button{
+    display: flex;
+    width: 183px;
+    height: 36px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid #013397;
+    background: #013397;
+    color:  #FCFCFC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+.red-button{
+    display: flex;
+    width: 183px;
+    height: 36px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid #B80302;
+    background: #B80302;
+    color:  #FCFCFC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.blue-button-option{
+    display: flex;
+    width: 183px;
+    height: 50px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid #013397;
+    background: #013397;
+    color:  #FCFCFC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.blue-button-option-material{
+    display: flex;
+    height: 30px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid #013397;
+    background: #013397;
+    color:  #FCFCFC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+.white-button{
+    display: flex;
+    width: 183px;
+    height: 36px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid #013397;
+    background:  #FCFCFC;
+    color: #013397;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+.transparent-button{
+    display: flex;
+    height: 36px;
+    padding: 16px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border:none;
+    background:  #FCFCFC;
+    color: #013397;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    word-break:normal;
+}
+
+
+.white-small-button{
+    display: flex;
+    width: 82px;
+    height: 36px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid #013397;
+    background: none;
+    color: #013397;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+
+.outline-border-button{
+    display: flex;
+    width: 82px;
+    height: 36px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 2px solid #013397;
+    background: none;
+    color: #013397;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.blue-small-button{
+    display: flex;
+    width: 82px;
+    height: 36px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid #013397;
+    background: #013397;
+    color:  #FCFCFC;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.table-name{
+    background:#D6E4FF;
+    text-align: left;
+    padding-left: 24px;
+}
+.table-name-white{
+    color:#D6E4FF;
+    background-color: #013397;
+    text-align: left;
+    padding-left: 24px;
+  }
+
+.content-table {
+    width: 100%;
+    border-radius: 1px;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.content-table-heading{
+    align-items: center;
+    text-align: justify;
+    border-bottom: 1px solid #D9DBE9;
+    border-top: 1px solid #D9DBE9;
+    height: 32px;
+    background:  #F2F2F2;
+    padding-right: 0%;
+    overflow: hidden;
+    color: #192A3E;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 20px;
+}
+.content-table-rows:nth-child(even){
+ background:#F7F7FC;
+}
+.content-table-data{
+    height: 25px;
+    padding: 9.5px 0px 9.5px 24px;
+    align-items: center;
+    text-align: justify;
+    gap: 8px;
+    color:#323C47;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+}
+.pagination{
+    border-bottom: 1px solid #D9DBE9;
+    border-top: 1px solid #D9DBE9;
+}
+
+
+/* filter menu in listing */
+.filter-menu{
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90px;
+    padding: 13px 20px;
+    border-top: 1px dashed #D9DBE9;
+    box-shadow: none;
+    align-items: left;
+}
+
+.filter-menu .search-row{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.filter-menu .search-row .search-box{
+    display: flex;
+    width: 350px;
+    height: 35px;
+    border: 1px solid #D9DBE9;
+    border-radius: 4px;
+    margin-right: 30px;
+}
+
+.filter-menu .search-row .search-box input{
+    padding-left: 10px;
+}
+
+.filter-menu .search-row .search-box .a-right{
+    display: inline-flex;
+    align-items: center;
+    padding-left: 150px;
+}
+
+.filter-menu .search-row .search-box .a-left{
+    display: inline-flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.inputField{
+  height: 50px;
+  border: 1px solid #D9DBE9;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+
+.inputFieldAutoComplete{
+  height: 50px;
+  border-radius: 5px;
+  /*padding-left: 20px;*/
+  /*padding-right: 20px;*/
+  width: 100%;
+}

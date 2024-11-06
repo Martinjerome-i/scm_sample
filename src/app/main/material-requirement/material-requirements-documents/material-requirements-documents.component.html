@@ -1,0 +1,47 @@
+<section class="vendor-list">
+  <div class="breadcrumb-pagination">
+    <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+    <ul class="breadcrumb">
+      <li><a href="#">List of Material Requirement</a></li>
+      <li><a href="#">Document List</a></li>
+    </ul>
+  </div>
+  <div class="section-header">
+    <div class="search-box">
+      <a><img src="assets/Icon.png" alt=""></a>
+      <input type="text" placeholder="Document Name">
+      <span>
+          <a href="admin/MaterialRequirements/uploadDocument">  <button class="blue-button">Upload New Document</button></a>
+      </span>
+    </div>
+  </div>
+  <table class="content-table">
+    <thead>
+    <tr>
+      <th  class = "content-table-heading" style="width: 480px;">Document Name</th>
+      <th  class = "content-table-heading" style="width: 480px;">Received Date & Time</th>
+      <th  class = "content-table-heading" style="width: 250px;">Action</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item of mrUploadedDocumentTablePaginate">
+    <tr class="content-table-rows">
+      <td class="content-table-data">{{item.OriginalFileName}}</td>
+      <td class="content-table-data">{{item.LastUpdatedOn}}</td>
+      <td class="content-table-data">
+        <div>
+          <a href="_blank"><img src="assets/Eye.png" alt=""></a>
+        </div>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <mat-paginator [length]="mrUploadedDocumentTable.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 (page)="OnPageChange($event)"
+                 showFirstLastButtons
+                 aria-label="Select page"
+                 class="pagination">
+  </mat-paginator>
+</section>

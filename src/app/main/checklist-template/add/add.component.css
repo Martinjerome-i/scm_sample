@@ -1,0 +1,90 @@
+
+
+/* breadcrumb pagination */
+.breadcrumb-pagination{
+  display: flex;
+  flex-direction: row;
+  color: #323C47;
+  text-align: center;
+  justify-content: left;
+  width: 100%;
+  padding: 2px 30px;
+  align-items: center;
+  border-bottom: 1px solid #D9DBE9;
+  text-wrap: nowrap;
+}
+
+.breadcrumb-pagination a img{
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  width: 16px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.breadcrumb{
+  list-style: none;
+}
+
+.breadcrumb li{
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.breadcrumb li+li::before{
+  font-weight: 600;
+  color:#D9DBE9;
+  content: ">\00a0";
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.breadcrumb li a{
+  color: #192A3E;
+  text-decoration: none;
+  text-align: center;
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+
+/* section-header */
+
+
+.content-body{
+  padding:0 20px;
+}
+.inputField{
+  height: 50px;
+  border: 1px solid #D9DBE9;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+
+.input-label{
+  color:#707683;
+  font-size: 17px;
+}
+::ng-deep  .mat-grid-tile-content{
+  display:grid !important;
+  justify-content: normal !important;
+}
+
+
+.bottom-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+  padding: 2% 3%;
+  gap: 10px;
+}

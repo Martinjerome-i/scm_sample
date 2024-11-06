@@ -1,0 +1,55 @@
+<section class="add-vendor">
+
+  <section class="breadcrumb-pagination">
+      <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+      <ul class="breadcrumb">
+          <li><a href="#">List of material requirements </a></li>
+          <li><a href="#">Details page</a></li>
+          <li><a href="#">Send vendor documents</a></li>
+      </ul>
+  </section>
+  
+  <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
+  
+    <div class="section-header">
+        <h2 class="section-header-heading">Send Vendor Document to R&D</h2>
+    </div>
+  
+    <div class="content-body">
+        <h4 class="section-sub-heading">Document:</h4>
+        <div class="content">
+  
+          <mat-grid-list cols="6" rowHeight="77px">
+            <mat-grid-tile colspan="3">
+              <label class="input-label"  for="purchaseRequest">Document Name *</label>
+              <input id="purchaseRequest" name="purchaseRequest" class="inputField" placeholder="" />
+            </mat-grid-tile>
+          </mat-grid-list>   
+  
+          <mat-grid-list cols="6" rowHeight="77px">
+            <mat-grid-tile colspan="6">
+              <label class="input-label"  for="purchaseRequest">Description</label>
+              <input id="purchaseRequest" name="purchaseRequest" class="inputField" placeholder="" />
+            </mat-grid-tile>
+          </mat-grid-list>   
+  
+          <mat-grid-list cols="6" rowHeight="77px">
+            <mat-grid-tile colspan="6">
+              <label class="input-label"  for="purchaseRequest">Upload Document *</label>
+              <input id="purchaseRequest" name="purchaseRequest" class="inputField" placeholder="" />
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+    </div>
+  <!-- </form> -->
+  <!-- <div class="content-body">
+    <h4 class="section-sub-heading">Material Details:</h4>
+    <button class="transparent-button" mat-button (click)="openDialog()">Add Material</button>
+  </div> -->
+  
+  <div class="bottom-buttons">
+    <button class="white-button">Cancel</button>
+    <button class="blue-button">Submit</button>
+  </div>
+  </section>
+  

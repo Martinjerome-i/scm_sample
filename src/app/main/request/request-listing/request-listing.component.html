@@ -1,0 +1,92 @@
+<div class="checklist">
+    <div class="heading">
+        <h2>Vendor Checklist Approvals List</h2>
+        <div>
+            <button class="btn4" onclick="openTabOne('filterOne');"><img src="assets/filter.png" alt="">Filter</button>
+        </div>
+    </div>
+    <div id="filterOne" class="openFilterOne">
+        <div class="filter">
+            <span class="search">
+                <a href="#" ><img src="assets/Icon.png" alt=""></a>
+                <input type="text" placeholder="Vendor\Material Name">
+            </span>
+            <span>
+                <input type="text" placeholder="PO date">
+                <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+            </span>
+        </div>
+    </div>
+    <div class="content-table">
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 250px;">Vendor Company Name</th>
+                        <th style="width: 250px;">Contact Name</th>
+                        <th style="width: 480px;">CAS Number</th>
+                        <th style="width: 350px;">Status</th>
+                        <th style="width: 250px;">Action</th>
+                    </tr>
+                </thead>
+              <tbody class="content-table-body">
+                <tr class="content-table-rows" *ngFor="let i of vendorChecklistListPaginate">
+                  <td class="content-table-data">{{i.TemplateCode}}</td>
+                  <td class="content-table-data">{{i.TemplateName}}</td>
+                  <td class="content-table-data">{{i.CASNumber}}</td>
+                  <td class="content-table-data">{{i.VendorDetailsCheckListStatus}}</td>
+                  <td class="content-table-data">
+                    <div>
+                      <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_horiz</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button (click)="validateAnswers(i.CheckListTemplateID)" mat-menu-item>
+                          <span>Validate</span>
+                        </button>
+                      </mat-menu>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="form-popup" id="myForm">
+        <form class="form-container">
+            <div class="form-content">
+                <span onclick="closeForm()">&times;</span>
+                <button>Edit</button>
+                <button onclick="openDeleteForm()">Delete</button>
+                <button onclick="myReminderFunction()">Send WhatsApp Reminder</button>
+                <span class="reminderpopuptext" id="reminderPopup">WhatsApp remainder sent to “Vendor name” successfully</span>
+            </div>
+        </form>
+    </div>
+    <div class="form-delete-popup" id="mydeleteForm">
+        <form class="form-delete-container">
+            <div class="form-delete-content">
+                <div class="heading">
+                    <h3><img src="assets/warning.png" alt="">Warning</h3>
+                </div>
+                <div class="content">
+                    <p>By deleting this vendor checklist will remove all its detail permanently.
+                        You will not be able to retrieve back deleted data.</p>
+                </div>
+                <div class="footer">
+                    <button class="btn1" onclick="closeDeleteForm()">Cancel</button>
+                    <button class="btn2" type="delete" onclick="myDeleteFunction()">Delete</button>
+                    <span class="deletepopuptext" id="deletePopup">“Vendor name” checklist deleted successfully</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<mat-paginator [length]="vendorChecklistList.length"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               (page)="OnPageChange($event)"
+               showFirstLastButtons
+               aria-label="Select page"
+               class="pagination">
+</mat-paginator>

@@ -1,0 +1,65 @@
+
+  <form>
+    <div class="form-header">
+        <h3 class="section-header-heading">Add Material</h3>
+        <a class="close-button">&times;</a>
+      </div>
+
+    <div class="row">
+      <div class="col">
+
+            <label>Material Category <span>*</span></label>
+        <div class="radio-buttons">
+            <input class="radio-button" type="radio" id="new" name="option" value="new">
+            <label for="new">New</label>
+            <input class="radio-button" type="radio" id="existing" name="option" value="existing">
+            <label for="existing">Existing</label>
+          </div>
+
+        <label for="cag-number">CAG Number<span>*</span></label>
+        <input type="text" id="cag-number" name="cag-number" required>
+
+        <label for="material-name">Material Name<span>*</span></label>
+        <input type="text" id="material-name" name="material-name" required>
+
+        <label for="price">Price<span>*</span></label>
+        <input type="text" id="price" name="price" required>
+
+        <label for="material-status">Material-Status</label>
+        <select name="Material Status" id="material-status" required>
+          <option value="new">New</option>
+          <option value="in-process">In-Process</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+        
+       
+        
+      </div>
+      <div class="col">
+        <label for="item-number">Item Number<span>*</span></label>
+        <input type="text" id="item-number" name="item-number" required>
+
+        <label for="material-type">Material-Type<span>*</span></label>
+        <select name="Material Type" id="material-type" required>
+            <option value="KSM">KSM</option>
+            <option value="Advanced Intermediate">Advanced Intermediate</option>
+            <option value="Common Raw Materials">Common Raw Materials</option>
+          </select>
+        
+        <label for="lead-time">Lead Time</label>
+        <input type="text" id="lead-time" name="lead-time" required>
+
+        <label for="upload">Upload Documents</label>
+        <input type="file" id="upload" name="upload" required>
+        
+      </div>
+    </div>
+
+    <div class="popup-buttons">
+        <button class="white-button">Cancel</button>
+        <button class="blue-button">Add</button>
+      </div>
+
+
+  </form>

@@ -1,0 +1,89 @@
+<!-- <section class="vendor-list">
+  <div class="breadcrumb-pagination">
+      <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+      <ul class="breadcrumb">
+          <li><a href="#">List of vendors</a></li>
+          <li><a href="#">Vendor details page</a></li>
+          <li><a href="#">Negotiation details page</a></li>
+      </ul>
+  </div>
+
+  <div class="page-details">
+      <div class="page-details-division">
+          <label class="page-details-label">Material Name:</label><p class="page-details-content">{{ negotiationList[0].MaterialDescription }}</p>
+      </div>
+      <div class="page-details-division">
+          <label class="page-details-label">Vendor Name:</label> <p class="page-details-content">{{ negotiationList[0].CompanyName }}</p>
+      </div>
+      <div class="page-details-division">
+          <label class="page-details-label">Vendor Revised Price:</label> <p class="page-details-content">{{ negotiationList[0].VendorRevisedPrice }}</p>
+      </div>
+      <div class="page-details-division">
+          <label class="page-details-label">Status:</label> <p class="page-details-content"><span class="status approved">{{ statusName }}</span></p>
+      </div>
+      <div class="page-details-division">
+          <a href=""><img src="assets/comment.png" alt=""></a>
+      </div>
+  </div>
+
+  <div class="search">
+      <span>
+          <input type="text" placeholder="Select Status">
+          <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+      </span>
+      <button *ngIf="(statusId == 3 || statusId == 4)" class="blue-button" (click)="changeStatus(negotiationList[0].VendorMaterialMappingDetailsNegotiationID, '5')">Reopen</button>
+      <button *ngIf="statusId == 5" class="blue-button" (click)="changeStatus(negotiationList[0].VendorMaterialMappingDetailsNegotiationID, '3')">Approve</button>
+      <button *ngIf="statusId == 5" class="blue-button" (click)="changeStatus(negotiationList[0].VendorMaterialMappingDetailsNegotiationID, '4')">Reject</button>
+      <a href="/admin/Vendor/vendorNegotiation">
+          <button class="blue-button">Edit</button>
+      </a>
+  </div>
+
+  <div class="content-table">
+      <div class="table-scroll">
+          <table>
+              <thead>
+                  <tr>
+                      <th  class = "content-table-heading" style="width: 100px;">Iteration</th>
+                      <th  class = "content-table-heading" style="width: 120px;">Materials</th>
+                      <th  class = "content-table-heading" style="width: 120px;">Req.Date</th>
+                      <th  class = "content-table-heading" style="width: 120px;">PR Number</th>
+                      <th  class = "content-table-heading" style="width: 80px;">Qty</th>
+                      <th  class = "content-table-heading" style="width: 80px;">Market Price</th>
+                      <th  class = "content-table-heading" style="width: 80px;">Offer Price</th>
+                      <th  class = "content-table-heading" style="width: 150px;">Date/Time of Offer</th>
+                      <th  class = "content-table-heading" style="width: 150px;">Last Quoated Price</th>
+                      <th  class = "content-table-heading" style="width: 150px;">Date/Time of Quoation</th>
+                      <th  class = "content-table-heading" style="width: 80px;">Final Price</th>
+                      <th  class = "content-table-heading" style="width: 80px;">Lead Time</th>
+                      <th  class = "content-table-heading" style="width: 300px;">Status</th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let negotiation of negotiationList">
+                  <tr class="content-table-rows">
+                      <td class="content-table-data">{{ negotiation.iteration }}</td>
+                      <td class="content-table-data">{{ negotiation.MaterialDescription }}</td>
+                      <td class="content-table-data">{{ negotiation.LastUpdatedOn | date:"dd/MM/yyyy" }}</td>
+                      <td class="content-table-data">{{ negotiation.PurchaseRequestNo }}</td>
+                      <td class="content-table-data">{{ negotiation.Quantity }}</td>
+                      <td class="content-table-data">{{ negotiation.MarketPrice | number:"1.2-2" }}</td>
+                      <td class="content-table-data">{{ negotiation.SCMOfferPrice | number:"1.2-2" }}</td>
+                      <td class="content-table-data">{{ negotiation.LastUpdatedOn | date:"dd/MM/yyyy HH:mm a" }}</td>
+                      <td class="content-table-data">{{ negotiation.VendorRevisedPrice | number:"1.2-2" }}</td>
+                      <td class="content-table-data">{{ negotiation.LastUpdatedOn | date:"dd/MM/yyyy HH:mm a" }}</td>
+                      <td class="content-table-data">{{ negotiation.SCMOfferPrice | number:"1.2-2" }}</td>
+                      <td class="content-table-data">{{ negotiation.LeadTime }} days</td>
+                      <td class="content-table-data">{{ negotiation.NegotiationStatus }}</td>
+                  </tr>
+          </table>
+      </div>
+  </div>
+
+  <mat-paginator [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+  aria-label="Select page"
+  class="pagination">
+  </mat-paginator>
+  </section> -->

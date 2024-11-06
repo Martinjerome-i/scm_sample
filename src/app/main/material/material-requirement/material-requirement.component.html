@@ -1,0 +1,90 @@
+<section class="vendor-list">
+    <div class="breadcrumb-pagination">
+        <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+        <ul class="breadcrumb">
+            <li><a href="#">List of material requirments</a></li>
+            <li><a href="#">Details page</a></li>
+        </ul>
+    </div>
+    
+    <div class="page-details">
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Material Name</label> <p class="page-details-content">Name of Material</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Type</label> <p class="page-details-content">Name</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Sent By</label> <p class="page-details-content">Name of the person (R&D)</p>
+        </div>
+    </div>
+    
+    <div class="search">
+        <span>
+            <input type="text" placeholder="Select vendor company">
+            <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+        </span>
+        <span>
+            <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+            <input type="text" placeholder="Document Name">
+        </span>
+        <a href="/admin/Materials/sendDocument">
+            <button class="blue-button">Send Vendor Documents</button>
+        </a>
+    </div>
+    
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th class = "content-table-heading">Document Name</th>
+                    <th class = "content-table-heading">Sent On</th>
+                    <th class = "content-table-heading">Action</th>
+                </tr>
+            </thead>
+            <tbody class="content-table-body">
+                <tr class="content-table-rows">
+                    <td class="content-table-data">Name of documents.doc</td>   
+                    <td class="content-table-data">dd/mm/yyyy at 1.00pm</td>
+                    <td class="content-table-data">
+                        <a href="/admin/Vendor/materialDetail"><img src="assets/Eye.png" alt=""></a>
+                    </td>
+                </tr>
+                <tr class="content-table-rows">
+                    <td class="content-table-data">Name of documents.doc</td>   
+                    <td class="content-table-data">dd/mm/yyyy at 1.00pm</td>
+                    <td class="content-table-data">
+                        <a href="/admin/Vendor/materialDetail"><img src="assets/Eye.png" alt=""></a>
+                    </td>
+                </tr>
+                <tr class="content-table-rows">
+                    <td class="content-table-data">Name of documents.doc</td>   
+                    <td class="content-table-data">dd/mm/yyyy at 1.00pm</td>
+                    <td class="content-table-data">
+                        <a href="/admin/Vendor/materialDetail"><img src="assets/Eye.png" alt=""></a>
+                    </td>
+                </tr>
+                <tr class="content-table-rows">
+                    <td class="content-table-data">Name of documents.doc</td>   
+                    <td class="content-table-data">dd/mm/yyyy at 1.00pm</td>
+                    <td class="content-table-data">
+                        <a href="/admin/Vendor/materialDetail"><img src="assets/Eye.png" alt=""></a>
+                    </td>
+                </tr>
+                <tr class="content-table-rows">
+                    <td class="content-table-data">Name of documents.doc</td>   
+                    <td class="content-table-data">dd/mm/yyyy at 1.00pm</td>
+                    <td class="content-table-data">
+                        <a href="/admin/Vendor/materialDetail"><img src="assets/Eye.png" alt=""></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+    <mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    showFirstLastButtons
+    aria-label="Select page"
+    class="pagination">
+    </mat-paginator>
+    </section>

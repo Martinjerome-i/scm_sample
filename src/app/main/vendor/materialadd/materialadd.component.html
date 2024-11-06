@@ -1,0 +1,159 @@
+
+
+<section class="breadcrumb-pagination">
+    <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+    <ul class="breadcrumb">
+        <li><a href="#">List of vendors</a></li>
+        <li><a href="#">Vendor details</a></li>
+        <li><a href="#">Add Material</a></li>
+    </ul>
+  </section>
+
+<section class="add-material">
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="section-header">
+      <h2 class="section-header-heading">Add Material</h2>
+      <div class="section-header-buttons">
+          <button class="transparent-button">Save Material</button>
+      </div>
+  </div>
+
+  <div class="content-body">
+      <h4 class="section-sub-heading">Vendor Details:</h4>
+      <div class="content">
+
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label" for="VendorName">Vendor Company Name</label>
+            <span class="VendorName" >{{CompanyName}}</span>
+            <!-- <input id="accountGroup" name="VendorName" formControlName="CompanyName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['CompanyName'].errors }" /> -->
+            <!-- <span class="details-text">12321</span> -->
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="accountNumber">Contact Name</label>
+            <span class="details-text">{{ContactName}}</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+        
+        <mat-grid-list cols="2" rowHeight="36px">
+            <mat-grid-tile>
+                <label class="input-label"  for="firstName">Email</label>
+                <span class="details-text">{{Email}}</span>
+              </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="lastName">Contact Number</label>
+            <span class="details-text">{{ContactNo}}</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="1" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="companyName">Address</label>
+            <span class="details-text">{{VendorStreet}}</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+<!-- 
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="contactNo">Contact No</label>
+            <span class="details-text">9846763762571</span>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="alternateContactNo">Alternate Contact No</label>
+            <span class="details-text">9846763762571</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="email">Email</label>
+            <span class="details-text">abdc-example.com</span>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="alternateEmail">Alternate Email</label>
+            <span class="details-text">abdc-example.com</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="houseNumber">House Number</label>
+            <span class="details-text">324</span>
+            <label class="input-label"  for="vendorStreet">Vendor Street</label>
+            <span class="details-text">Main Street</span>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="street1">Street 1</label>
+            <span class="details-text">Main Street 1</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="street2">Street 2</label>
+            <span class="details-text">Main Street 2</span>
+        </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="street3">Street 3</label>
+            <span class="details-text">Main Street 3</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="street4">Street 4</label>
+            <span class="details-text">Main Street 4</span>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="street5">Street 5</label>
+            <span class="details-text">Main Street 5</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="city">City</label>
+            <span class="details-text">Delhi</span>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="PostalCode">Postal Code</label>
+            <span class="details-text">542948</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="36px">
+          <mat-grid-tile>
+            <label class="input-label"  for="State">State</label>
+            <span class="details-text">Delhi</span>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="country">Country</label>
+            <span class="details-text">India</span>
+          </mat-grid-tile>
+      
+        </mat-grid-list>
+
+
+        <mat-grid-list cols="1" rowHeight="42px">
+            <mat-grid-tile>
+              <label class="input-label"  for="category">Category</label>
+              <span class="details-text">New</span>
+            </mat-grid-tile>
+          </mat-grid-list> -->
+
+      </div>
+  </div>
+</form>
+<div class="content-body">
+  <h4 class="section-sub-heading">Material Details:</h4>
+  <button class="transparent-button" mat-button (click)="openDialog()">Add Material</button>
+</div>
+
+<div class="bottom-buttons">
+  <button class="white-button">Cancel</button>
+  <button class="blue-button">Submit</button>
+</div>
+</section>

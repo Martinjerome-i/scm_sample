@@ -1,0 +1,22 @@
+.wrapper{
+    display:flex;
+    flex-direction: row;
+    width:100vw;
+    z-index:1;
+    overflow-y: auto;
+}
+
+section{    
+    display: flex;
+    flex-direction: column  ;
+    background: white;
+    width: 80vw;
+    right:0;
+    height: 100vh;
+    background: white;
+    content: "";
+    padding: 0%;
+}
+main{
+    overflow-y: scroll;
+}

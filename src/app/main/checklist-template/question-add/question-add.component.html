@@ -1,0 +1,122 @@
+<section class="breadcrumb-pagination">
+  <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+  <ul class="breadcrumb">
+    <li><a href="#">List of vendors</a></li>
+    <li><a href="#">Add Vendor</a></li>
+  </ul>
+</section>
+
+<section class="add-vendor">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="section-header">
+      <h2 class="section-header-heading">Add Vendor</h2>
+      <div class="section-header-buttons">
+        <button class="transparent-button">Save Vendor</button>
+      </div>
+    </div>
+
+    <div class="content-body">
+      <h4 class="section-sub-heading">Vendor Details:</h4>
+      <div class="content">
+        <br>
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile colspan="4">
+            <label class="input-label" for="QuestionTitle">Question Name</label>
+            <input id="QuestionTitle" name="QuestionTitle" formControlName="QuestionTitle" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['QuestionTitle'].errors }" />
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2">
+            <label class="input-label"  for="QuestionType">Question Type</label>
+            <select name="QuestionType" id="QuestionType" class="inputField" (change)="setQuestionType()" [(ngModel)]="questionTypeSelect" required [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let questionType of questionTypeList" [value]="questionType.QuestionTypeID">{{ questionType.QuestionType }}</option>
+            </select>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <br>
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="questionTypeSelect == 1">
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="AnswerBox">Answer *</label>
+            <input type="text" id="AnswerBox" name="AnswerBox" formControlName="AnswerBox" class="inputField" placeholder="Answer" [ngClass]="{ 'is-invalid': submitted && f['AnswerBox'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="6" rowHeight="277px" [gutterSize]= "'15px'" *ngIf="questionTypeSelect == 2">
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="Paragraph">Answer *</label>
+            <textarea id="Paragraph" name="Paragraph" formControlName="Paragraph" class="inputField" style="height: 200px;">Answer in Details</textarea>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="questionTypeSelect == 5">
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="FileType">Upload File *</label>
+            <input type="file" id="FileType" name="FileType" formControlName="FileType" class="inputField" placeholder="Radio Option" [ngClass]="{ 'is-invalid': submitted && f['FileType'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="questionTypeSelect == 6">
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="DateType">Date *</label>
+            <input type="date" id="DateType" name="DateType" formControlName="DateType" class="inputField" placeholder="Radio Option" [ngClass]="{ 'is-invalid': submitted && f['DateType'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="questionTypeSelect == 7">
+          <mat-grid-tile colspan="6">
+            <label class="input-label"  for="DateTimeType">Datetime *</label>
+            <input type="datetime-local" id="DateTimeType" name="DateTimeType" formControlName="DateTimeType" class="inputField" placeholder="Radio Option" [ngClass]="{ 'is-invalid': submitted && f['DateTimeType'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+        <div class="bottom-buttons" *ngIf="currentSelectedQuestionId == '0' || checkListQuestionID != '0'">
+          <button (click)="backPage()" class="white-button">Cancel</button>
+          <button (click)="onSubmit()" *ngIf="isUpdated" class="blue-button">Update</button>
+          <button (click)="onSubmit()" *ngIf="!isUpdated" class="blue-button">Submit</button>
+        </div>
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="(questionTypeSelect == 3 && currentSelectedQuestionId != '0')">
+          <mat-grid-tile colspan="5">
+            <label class="input-label"  for="RadioButton">Options *</label>
+            <input type="text" id="RadioButton" name="RadioButton" formControlName="RadioButton" class="inputField" placeholder="Radio Option" [ngClass]="{ 'is-invalid': submitted && f['RadioButton'].errors }" />
+          </mat-grid-tile>
+          <mat-grid-tile colspan="1">
+            <br>
+            <button (click)="setOption(3)" class="blue-button-option">Add Option</button>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="(questionTypeSelect == 4 && currentSelectedQuestionId != '0')">
+          <mat-grid-tile colspan="5">
+            <label class="input-label"  for="Checkbox">Options *</label>
+            <input type="text" id="Checkbox" name="Checkbox" formControlName="Checkbox" class="inputField" placeholder="Checkbox Option" [ngClass]="{ 'is-invalid': submitted && f['Checkbox'].errors }" />
+          </mat-grid-tile>
+          <mat-grid-tile colspan="1">
+            <br>
+            <button (click)="setOption(4)" class="blue-button-option">Add Option</button>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="6" [gutterSize]= "'15px'" *ngIf="(questionTypeSelect == 3 || questionTypeSelect == 4)">
+          <div *ngFor="let i of questionTypeOptionListUpdate">
+            <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="questionTypeSelect == 3">
+              <mat-grid-tile colspan="5">
+                <label class="input-label">{{ i.QuestionValue }}</label>
+                <input *ngIf="questionTypeSelect == 3" class="optionDesign" type="radio" placeholder="Radio Option" />
+              </mat-grid-tile>
+              <mat-grid-tile colspan="1">
+                <label>remove</label>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="12" rowHeight="77px" [gutterSize]= "'15px'" *ngIf="questionTypeSelect == 4">
+              <mat-grid-tile colspan="1">
+                <input *ngIf="questionTypeSelect == 4" class="optionDesign" type="checkbox" placeholder="Checkbox Option" />
+              </mat-grid-tile>
+              <mat-grid-tile colspan="9">
+                <label class="input-label">{{ i.QuestionValue }}</label>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2">
+                <button type="button" (click)="removeOptionUpdate(i.QuestionOptionsID, i.CheckListQuestionID)" class="red-button">Remove</button>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-grid-list>
+      </div>
+    </div>
+  </form>
+  <div class="bottom-buttons" *ngIf="currentSelectedQuestionId != '0' && checkListQuestionID != '0'">
+    <button (click)="backPage()" class="white-button">Cancel</button>
+    <button (click)="pageReload()" class="blue-button">Submit</button>
+  </div>
+</section>

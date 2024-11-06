@@ -1,0 +1,101 @@
+<section class="vendor-list">
+    <div class="breadcrumb-pagination">
+        <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+        <ul class="breadcrumb">
+            <li><a href="#">List of vendors</a></li>
+            <li><a href="#">Vendor details</a></li>
+            <li><a href="#">Material Details</a></li>
+        </ul>
+    </div>
+
+    <div class="page-details">
+        <div class="page-details-division">
+            <label class="page-details-label">Vendor ID</label> <p class="page-details-content">{{vendorID}}</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label">Company Name:</label> <p class="page-details-content">{{companyName}}</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label">Contact Name:</label> <p class="page-details-content">{{contactName}}</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label">Contact No:</label> <p class="page-details-content">{{contactNo}}</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label">Status:</label> <p class="page-details-content"><span class="status new">{{status}}</span></p>
+        </div>
+    </div>
+
+    <div class="page-details">
+        <div class="page-details-division">
+            <label class="page-details-label">Material Name</label> <p class="page-details-content">{{materialName}}</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label">Category:</label> <p class="page-details-content"><span class="status approved">Existing</span></p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label">Qualification Status:</label> <p class="page-details-content"><span class="status in-process">Pending</span></p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label">Expected Closing Date:</label> <p class="page-details-content">{{expectedclosingDate}}</p>
+        </div>
+    </div>
+
+
+
+        <div class="section-header">
+
+            <div class="search-section">
+                <span>
+                    <label class="page-details-label">CAS Number:</label> <span class="page-details-content">{{casNumber}}</span>
+                </span>
+                <span>
+                    <label class="page-details-label">Item Number:</label> <span class="page-details-content">{{itemNumber}}</span>
+                </span>
+            </div>
+            <div class="search-box">
+                <a><img src="assets/Icon.png" alt=""></a>
+                <input type="text" placeholder="Document Name">
+                <span>
+                    <a href="admin/Vendor/documentUpload">  <button class="blue-button">Upload New Document</button></a>
+                </span>
+            </div>
+
+
+        </div>
+
+
+
+
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th  class = "content-table-heading" style="width: 480px;">Document Name</th>
+                            <th  class = "content-table-heading" style="width: 480px;">Description</th>
+                            <th  class = "content-table-heading" style="width: 480px;">Received Date & Time</th>
+                            <th  class = "content-table-heading" style="width: 250px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of vendorDocumentTablePaginate">
+                        <tr class="content-table-rows">
+                            <td class="content-table-data">{{item.OriginalFileName}}</td>
+                            <td class="content-table-data">{{item.description}}</td>
+                            <td class="content-table-data">{{item.LastUpdatedOn}}</td>
+                            <td class="content-table-data">
+                                <div>
+                                <a href="_blank"><img src="assets/Eye.png" alt=""></a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+              <mat-paginator [length]="vendorDocumentTable.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 (page)="OnPageChange($event)"
+              showFirstLastButtons
+              aria-label="Select page"
+              class="pagination">
+    </mat-paginator>
+</section>

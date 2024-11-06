@@ -1,0 +1,141 @@
+<section class="breadcrumb-pagination">
+    <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+    <ul class="breadcrumb">
+        <li><a href="#">List of vendors</a></li>
+        <li><a href="#">Add Vendor</a></li>
+    </ul>
+  </section>
+
+<section class="add-vendor">
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="section-header">
+      <h2 class="section-header-heading">Add Vendor</h2>
+      <div class="section-header-buttons">
+          <button class="transparent-button">Save Vendor</button>
+      </div>
+  </div>
+  
+  <div class="content-body">
+      <h4 class="section-sub-heading">Vendor Details:</h4>
+      <div class="content">
+
+        <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label" for="accountGroup">Account Group</label>
+            <input id="accountGroup" name="accountGroup" formControlName="accountGroup" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['accountGroup'].errors }" />
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="accountNo">Account Number</label>
+            <input id="accountNo" name="accountNo" formControlName="accountNo" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['accountNo'].errors }" />
+          </mat-grid-tile>
+          <mat-grid-tile colspan="4">
+            <label class="input-label"  for="firstName">First Name *</label>
+            <input id="firstName" name="firstName" formControlName="firstName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label"  for="lastName">Last Name *</label>
+            <input id="lastName" name="lastName" formControlName="lastName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="companyName">Company Name</label>
+            <input id="companyName" name="companyName" formControlName="companyName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['companyName'].errors }"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label"  for="contactNo">Contact No</label>
+            <input id="contactNo" name="contactNo" formControlName="contactNo" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['contactNo'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="alternateContactNo">Alternate Contact No</label>
+            <input id="alternateContactNo" name="alternateContactNo" formControlName="alternateContactNo" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['alternateContactNo'].errors }"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label"  for="email">Email</label>
+            <input type="email" id="email" name="email" formControlName="email" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="alternateEmail">Alternate Email</label>
+            <input type="alternateEmail" id="alternateEmail" name="alternateEmail" formControlName="alternateEmail" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['alternateEmail'].errors }"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="4" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label"  for="houseNumber">House Number</label>
+            <input id="houseNumber" name="houseNumber" formControlName="houseNumber" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['houseNumber'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="3">
+            <label class="input-label"  for="vendorStreet">Vendor Street</label>
+            <input id="vendorStreet" name="vendorStreet" formControlName="vendorStreet" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['vendorStreet'].errors }"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label"  for="street1">Street 1</label>
+            <input id="street1" name="street1" formControlName="street1" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['street1'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="street2">Street 2</label>
+            <input id="street2" name="street2" formControlName="street2" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['street2'].errors }"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="3" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label"  for="street3">Street 3</label>
+            <input id="street3" name="street3" formControlName="street3" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['street3'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="street4">Street 4</label>
+            <input id="street4" name="street4" formControlName="street4" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['street4'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="street5">Street 5</label>
+            <input id="street5" name="street5" formControlName="street5" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['street5'].errors }"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+
+        <mat-grid-list cols="4" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label"  for="city">City</label>
+            <input id="city" name="city" formControlName="city" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['city'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="State">State</label>
+            <input id="State" name="State" formControlName="State" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['State'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="country">Country</label>
+            <input id="country" name="country" formControlName="country" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['country'].errors }"/>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="PostalCode">Postal Code</label>
+            <input id="PostalCode" name="PostalCode" formControlName="PostalCode" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['PostalCode'].errors }"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+      </div>
+  </div>
+</form>
+<div class="content-body">
+  <h4 class="section-sub-heading">Material Details:</h4>
+  <button class="transparent-button" mat-button (click)="openDialog()">Add Material</button>
+</div>
+
+<div class="bottom-buttons">
+  <button class="white-button">Cancel</button>
+  <button class="blue-button">Submit</button>
+</div>
+</section>

@@ -1,0 +1,120 @@
+<section class="vendor-list">
+    <div class="breadcrumb-pagination">
+        <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+        <ul class="breadcrumb">
+            <li><a href="#">List of materials</a></li>
+            <li><a href="#">Material details</a></li>
+            <li><a href="#">Documents</a></li>
+        </ul>
+    </div>
+    
+    <div class="page-details">
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Material Name:</label> <p class="page-details-content">Name of the Material</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Type:</label> <p class="page-details-content">Name</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Info:</label> <p class="page-details-content">Name</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Category:</label> <p class="page-details-content"><span class="status approved">Existing</span></p>
+        </div>
+    </div>
+
+    <div class="page-details">
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Vendor ID</label> <p class="page-details-content">12312</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Company Name:</label> <p class="page-details-content">Name of the company</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Contact Name:</label> <p class="page-details-content">Name of the person</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Contact No:</label> <p class="page-details-content">+91 9876504321</p>
+        </div>
+        <div class="page-details-division">
+            <label class="page-details-label" for="">Status:</label> <p class="page-details-content"><span class="status new">New</span></p>
+        </div>
+    </div>
+
+    
+   
+        <div class="section-header">
+
+            <div class="search-section">
+                <span>
+                    <label class="page-details-label" for="">CAS Number:</label> <span class="page-details-content">12312</span>
+                </span>
+                <span>
+                    <label class="page-details-label" for="">Item Number:</label> <span class="page-details-content">12312</span>
+                </span>
+            </div>
+            <div class="search-box">
+                <a><img src="assets/Icon.png" alt=""></a>
+                <input type="text" placeholder="Document Name">
+            </div>
+
+        </div>
+
+
+        
+            
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th  class = "content-table-heading" style="width: 480px;">Document Name</th>
+                            <th  class = "content-table-heading" style="width: 480px;">Description</th>
+                            <th  class = "content-table-heading" style="width: 480px;">Received Date & Time</th>
+                            <th  class = "content-table-heading" style="width: 250px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="content-table-rows">
+                            <td class="content-table-data">Name of the Document</td>
+                            <td class="content-table-data">Description goes here</td>
+                            <td class="content-table-data">dd/mm/yyyy at 1:00pm</td>
+                            <td class="content-table-data">
+                                <div>
+                                <a href="_blank"><img src="assets/Eye.png" alt=""></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="content-table-rows">
+                            <td class="content-table-data">Name of the Document</td>
+                            <td class="content-table-data">Description goes here</td>
+                            <td class="content-table-data">dd/mm/yyyy at 1:00pm</td>
+                            <td class="content-table-data">
+                                <div>
+                                <a href="_blank"><img src="assets/Eye.png" alt=""></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="content-table-rows">
+                            <td class="content-table-data">Name of the Document</td>
+                            <td class="content-table-data">Description goes here</td>
+                            <td class="content-table-data">dd/mm/yyyy at 1:00pm</td>
+                            <td class="content-table-data">
+                                <div>
+                                <a href="_blank"><img src="assets/Eye.png" alt=""></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+           
+    
+    <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              showFirstLastButtons
+              aria-label="Select page"
+              class="pagination">
+    </mat-paginator>
+
+
+    
+   

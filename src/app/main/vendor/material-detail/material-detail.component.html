@@ -1,0 +1,133 @@
+<section class="vendor-list">
+  <div class="breadcrumb-pagination">
+    <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+    <ul class="breadcrumb">
+      <li><a href="#">List of Material</a></li>
+      <li><a href="#">Material details</a></li>
+      <li><a href="#">Vendor Details</a></li>
+    </ul>
+  </div>
+
+  <div class="page-details">
+    <div class="page-details-division">
+      <label class="page-details-label">Material Name</label> <p class="page-details-content">{{ negotiationList[0].MaterialDescription }}</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Category:</label> <p class="page-details-content"><span class="status approved">{{ negotiationList[0].NegotiationStatus }}</span></p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Qualification Status:</label> <p class="page-details-content"><span class="status in-process">Pending</span></p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Expected Closing Date:</label> <p class="page-details-content">{{ negotiationList[0].LeadTime }}</p>
+    </div>
+  </div>
+
+  <div class="page-details">
+    <div class="page-details-division">
+      <label class="page-details-label">Vendor ID</label> <p class="page-details-content">{{ negotiationList[0].VendorID }}</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Company Name:</label> <p class="page-details-content">{{ negotiationList[0].CompanyName }}</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Contact Name:</label> <p class="page-details-content">-</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Contact No:</label> <p class="page-details-content">-</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Status:</label> <p class="page-details-content"><span class="status new">New</span></p>
+    </div>
+  </div>
+
+  <div class="page-details-2">
+    <div class="page-details-division">
+      <label class="page-details-label">CAS Number:</label> <p class="page-details-content">{{ negotiationList[0].MaterialID }}</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Item Number:</label> <p class="page-details-content">{{ negotiationList[0].MarketPrice }}</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Total Actual Timeline:</label> <p class="page-details-content">6 weeks</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Total Overlap of Timeline:</label> <p class="page-details-content">9 weeks</p>
+    </div>
+  </div>
+
+  <table class="content-table">
+    <caption class="table-name-white">SCM</caption>
+    <thead>
+    <tr>
+      <th class = "content-table-heading">S No.</th>
+      <th class = "content-table-heading">Activity</th>
+      <th class = "content-table-heading">Standard</th>
+      <th class = "content-table-heading">Actual</th>
+      <th class = "content-table-heading">Variance</th>
+      <th class = "content-table-heading">Status</th>
+      <th class = "content-table-heading">Comments</th>
+    </tr>
+    </thead>
+    <tbody class="content-table-body">
+    <tr *ngFor="let item of qualificationList" class="content-table-rows">
+      <td class="content-table-data">{{ item.qualificationID }}</td>
+      <td class="content-table-data">{{ item.qualificationName }}</td>
+      <td class="content-table-data">{{ item.qualificationStandard }} weeks</td>
+      <td class="content-table-data">
+        <span class="status new" *ngIf="item.qualificationStatus == 2">{{ item.qualificationActual }} weeks</span>
+        <span class="status new" *ngIf="item.qualificationStatus != 2">-</span>
+      </td>
+      <td class="content-table-data">
+        <span class="status approved" *ngIf="item.qualificationStatus == 2">{{ item.qualificationVariation }}%</span>
+        <span class="status approved" *ngIf="item.qualificationStatus != 2">-</span>
+      </td>
+      <td class="content-table-data" *ngIf="item.qualificationStatus == 2">Completed</td>
+      <select *ngIf="item.qualificationStatus != 2" name="Status" id="status" class="inputFieldSmall" (change)="setupStatus(item.qualificationID)">
+        <option *ngFor="let qualificationStatus of qualificationStatusList" [value]="qualificationStatus.qualificationStatusID">{{ qualificationStatus.qualificationStatusName }}</option>
+      </select>
+      <td class="content-table-data">
+        <div class="comment-link-section">
+          <a class="comment-link" href="/admin/Vendor/materialDetail">Add</a>
+          <a class="comment-link" href="/admin/Vendor/materialDetail">View</a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table class="content-table">
+    <caption class="table-name">R&D</caption>
+    <thead>
+    <tr>
+      <th class = "content-table-heading">S No.</th>
+      <th class = "content-table-heading">Activity</th>
+      <th class = "content-table-heading">Standard</th>
+      <th class = "content-table-heading">Actual</th>
+      <th class = "content-table-heading">Variance</th>
+      <th class = "content-table-heading">Status</th>
+      <th class = "content-table-heading">Comments</th>
+    </tr>
+    </thead>
+    <tbody class="content-table-body">
+    </tbody>
+  </table>
+
+  <table class="content-table">
+    <caption class="table-name">Regulatory</caption>
+    <thead>
+    <tr>
+      <th class = "content-table-heading">S No.</th>
+      <th class = "content-table-heading">Activity</th>
+      <th class = "content-table-heading">Standard</th>
+      <th class = "content-table-heading">Actual</th>
+      <th class = "content-table-heading">Variance</th>
+      <th class = "content-table-heading">Status</th>
+      <th class = "content-table-heading">Comments</th>
+    </tr>
+    </thead>
+    <tbody class="content-table-body">
+    </tbody>
+  </table>
+
+</section>

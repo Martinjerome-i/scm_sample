@@ -1,0 +1,123 @@
+<div class="checklist">
+  <div class="breadcrumb-pagination">
+    <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+    <ul class="breadcrumb">
+      <li><a href="#">List of Purchase Request</a></li>
+      <li><a href="#">Vendor details page</a></li>
+    </ul>
+  </div>
+
+  <div class="page-details">
+    <div class="page-details-division">
+      <label class="page-details-label">PO.No</label><p class="page-details-content">12</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">PO.Date</label><p class="page-details-content">12-03-2024</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Vendor Name:</label> <p class="page-details-content">test</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Contact Name:</label> <p class="page-details-content">Suresh</p>
+    </div>
+    <div class="page-details-division">
+      <label class="page-details-label">Expected Date</label><p class="page-details-content">12-03-2024</p>
+    </div>
+  </div>
+  <div class="heading">
+    <h2>List of Purchase Request</h2>
+    <div>
+      <button class="btn4" onclick="openTabOne('filterOne');"><img src="assets/filter.png" alt="">Filter</button>
+    </div>
+  </div>
+  <div id="filterOne" class="openFilterOne">
+    <div class="filter">
+      <span class="search">
+          <a href="#" ><img src="assets/Icon.png" alt=""></a>
+          <input type="text" placeholder="Vendor\Material Name">
+      </span>
+      <span>
+          <input type="text" placeholder="PO date">
+          <a href="#"><img src="assets/datepicker.png" alt=""></a>
+      </span>
+      <span>
+          <input type="text" placeholder="Exp. Delivery Date *">
+          <a href="#"><img src="assets/datepicker.png" alt=""></a>
+      </span>
+    </div>
+  </div>
+  <div class="content-table">
+    <div class="table-scroll">
+      <table>
+        <thead>
+        <tr>
+          <th colspan="2">P.O. No</th>
+          <th colspan="2">P.P Date</th>
+          <th colspan="2">Vendor Company Name</th>
+          <th colspan="2">Contact Name</th>
+          <th colspan="2">Exp. Delivery Date</th>
+          <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2">22568</td>
+            <td colspan="2">01/01/2023</td>
+            <td colspan="2">Name of the Company</td>
+            <td colspan="2">Founder</td>
+            <td colspan="2">01/01/2023</td>
+            <td colspan="2">
+              <div>
+                <button>
+                  <img src="assets/Eye.png" alt="">
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="10">
+              <mat-horizontal-stepper linear #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                  <ng-template matStepLabel>Role 1</ng-template>
+                  <ng-template matStepContent>
+                    <button class="transparent-button" matStepperNext>Update</button>
+                  </ng-template>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                  <ng-template matStepLabel>Role 2</ng-template>
+                  <ng-template matStepContent>
+                    <button class="transparent-button" matStepperNext>Update</button>
+                  </ng-template>
+                </mat-step>
+                <mat-step [stepControl]="thirdFormGroup">
+                  <ng-template matStepLabel>Role 3</ng-template>
+                  <ng-template matStepContent>
+                    <button class="transparent-button" matStepperNext>Update</button>
+                  </ng-template>
+                </mat-step>
+              </mat-horizontal-stepper>
+            </td>
+            <td colspan="2">
+              <div>
+                <button class="outline-border-button">
+                  Submit to Vendor
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="flex-item pagination">
+  <a href="#">Item per page:</a>
+  <span class="box">
+        <a href="#"><p>10</p></a><img src="assets/drownarrow.png" alt="">
+    </span>
+  <a href="#" class="img">Page 1 of 10</a>
+  <a href="#" class="img"><img src="assets/leftend.png" alt=""></a>
+  <a href="#" class="img"><img src="assets/Leftarrow.png" alt=""></a>
+  <a href="#" class="img"><img src="assets/rightarrow.png" alt=""></a>
+  <a href="#" class="img"><img src="assets/rightend.png" alt=""></a>
+</div>

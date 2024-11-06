@@ -1,0 +1,824 @@
+{
+	"info": {
+		"_postman_id": "e4630a7b-7f34-44e4-8566-290398c9a3d9",
+		"name": "SCM Web API Staging v1.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32456437"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "Authenticate - Token Generation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\":\"{{APIUserName}}\",\r\n    \"UserPassword\":\"{{APIPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Authenticate/v1/authenticate",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Authenticate",
+								"v1",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Username\":\"{{LoginUserName}}\",\r\n    \"Password\":\"{{LoginPassword}}\",\r\n    \"DeviceType\":\"DeviceType\",\r\n    \"BrowserName\":\"BrowserName\",\r\n    \"OSFamily\":\"OSFamily\",\r\n    \"OSName\":\"OSName\",\r\n    \"UserAgent\":\"UserAgent\",\r\n    \"IPAddress\":\"127.0.0.12\",\r\n    \"AppVersion\":\"v1.0.0.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Authenticate/v1/UserLogin",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Authenticate",
+								"v1",
+								"UserLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Authenticate/v1/UserLogout",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Authenticate",
+								"v1",
+								"UserLogout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Menu Layout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Authenticate/v1/GetMenuLayout",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Authenticate",
+								"v1",
+								"GetMenuLayout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Page Privileges",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Authenticate/v1/GetPagePrivileges",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Authenticate",
+								"v1",
+								"GetPagePrivileges"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CheckListTemplate",
+			"item": [
+				{
+					"name": "Get Question Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/CheckListTemplate/v1/GetQuestionType",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"CheckListTemplate",
+								"v1",
+								"GetQuestionType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CheckListTemplate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/CheckListTemplate/v1/GetCheckListTemplate",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"CheckListTemplate",
+								"v1",
+								"GetCheckListTemplate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CheckListTemplateByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/CheckListTemplate/v1/GetCheckListTemplate/2",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"CheckListTemplate",
+								"v1",
+								"GetCheckListTemplate",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add CheckListTemplate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DataRequest\": {\r\n        \"LoginAuditID\": {{LoginAuditID}},\r\n        \"SecretKey\": \"{{SecretKey}}\",\r\n        \"PageID\": {{PageID}}\r\n    },\r\n    \"CheckListTemplate\": {        \r\n        \"TemplateCode\": \"T003\",\r\n        \"TemplateName\":\"CheckList Temple 002\",\r\n        \"IsActive\":true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/CheckListTemplate/v1/AddCheckListTemplate",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"CheckListTemplate",
+								"v1",
+								"AddCheckListTemplate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update CheckListTemplate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DataRequest\": {\r\n        \"LoginAuditID\": {{LoginAuditID}},\r\n        \"SecretKey\": \"{{SecretKey}}\",\r\n        \"PageID\": {{PageID}}\r\n    },\r\n    \"CheckListTemplate\": {\r\n        \"CheckListTemplateID\":1,\r\n        \"TemplateCode\": \"T001\",\r\n        \"TemplateName\":\"CheckList Temple 0001\",\r\n        \"IsActive\":true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/CheckListTemplate/v1/UpdateCheckListTemplate",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"CheckListTemplate",
+								"v1",
+								"UpdateCheckListTemplate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete CheckListTemplate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/CheckListTemplate/v1/DeleteCheckListTemplate/1",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"CheckListTemplate",
+								"v1",
+								"DeleteCheckListTemplate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Material",
+			"item": [
+				{
+					"name": "Get Material",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Material/v1/GetMaterial",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Material",
+								"v1",
+								"GetMaterial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get MaterialByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Material/v1/GetMaterial/3",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Material",
+								"v1",
+								"GetMaterial",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Material",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DataRequest\": {\r\n        \"LoginAuditID\": {{LoginAuditID}},\r\n        \"SecretKey\": \"{{SecretKey}}\",\r\n        \"PageID\": {{PageID}}\r\n    },\r\n    \"Material\": {        \r\n        \"MaterialType\": \"PM\",\r\n        \"Plant\":\"ML15\",\r\n        \"MaterialNumber\":\"100P00A003527\",\r\n        \"MaterialDescription\":\"RED RECTANGULAR CONTAINER 600X398X298MM\",\r\n        \"UOM\":\"No\",\r\n        \"IsActive\":true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Material/v1/AddMaterial",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Material",
+								"v1",
+								"AddMaterial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Material",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DataRequest\": {\r\n        \"LoginAuditID\": {{LoginAuditID}},\r\n        \"SecretKey\": \"{{SecretKey}}\",\r\n        \"PageID\": {{PageID}}\r\n    },\r\n    \"Material\":{\r\n        \"MaterialID\":2,\r\n        \"MaterialType\": \"PM\",\r\n        \"Plant\":\"ML15\",\r\n        \"MaterialNumber\":\"100P00A00357\",\r\n        \"MaterialDescription\":\"RED RECTANGULAR CONTAINER 600X398X298MM\",\r\n        \"UOM\":\"Liter\",\r\n        \"IsActive\":true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Material/v1/UpdateMaterial",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Material",
+								"v1",
+								"UpdateMaterial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Material",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Material/v1/DeleteMaterial/2",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Material",
+								"v1",
+								"DeleteMaterial",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "Get Vendor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Vendor/v1/GetVendor",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Vendor",
+								"v1",
+								"GetVendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get VendorByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Vendor/v1/GetVendor/1",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Vendor",
+								"v1",
+								"GetVendor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Vendor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DataRequest\": {\r\n        \"LoginAuditID\": {{LoginAuditID}},\r\n        \"SecretKey\": \"{{SecretKey}}\",\r\n        \"PageID\": {{PageID}}\r\n    },\r\n    \"Vendor\": {\r\n        \"AccountGroup\": \"IN\",\r\n        \"AccountNumber\": \"100056\",\r\n        \"FirstName\": \"ACG ASSOCIATED CAPSULES PVT.LTD.\",\r\n        \"LastName\": \"\",\r\n        \"VendorStreet\": \"131, KANDIVIL INDUSTRIAL ESTATE, K\",\r\n        \"Street1\": \"\",\r\n        \"Street2\": \"1st main\",\r\n        \"Street3\": \"\",\r\n        \"Street4\": \"\",\r\n        \"Street5\": \"\",\r\n        \"HouseNumber\": \"\",\r\n        \"City\": \"MUMBAI\",\r\n        \"PostalCode\": \"400067\",\r\n        \"State\": \"Maharashtra\",\r\n        \"IsActive\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Vendor/v1/AddVendor",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Vendor",
+								"v1",
+								"AddVendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vendor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DataRequest\": {\r\n        \"LoginAuditID\": {{LoginAuditID}},\r\n        \"SecretKey\": \"{{SecretKey}}\",\r\n        \"PageID\": {{PageID}}\r\n    },\r\n    \"Vendor\": {\r\n        \"VendorID\":1,\r\n        \"AccountGroup\": \"IN\",\r\n        \"AccountNumber\": \"100056\",\r\n        \"FirstName\": \"ACG ASSOCIATED CAPSULES PVT.LTD.\",\r\n        \"LastName\": \"\",\r\n        \"VendorStreet\": \"131, KANDIVIL INDUSTRIAL ESTATE\",\r\n        \"Street1\": \"\",\r\n        \"Street2\": \"1st main\",\r\n        \"Street3\": \"\",\r\n        \"Street4\": \"\",\r\n        \"Street5\": \"\",\r\n        \"HouseNumber\": \"\",\r\n        \"City\": \"MUMBAI\",\r\n        \"PostalCode\": \"400067\",\r\n        \"State\": \"Maharashtra\",\r\n        \"IsActive\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Vendor/v1/UpdateVendor",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Vendor",
+								"v1",
+								"UpdateVendor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vendor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"LoginAuditID\": {{LoginAuditID}},\r\n    \"SecretKey\": \"{{SecretKey}}\",\r\n    \"PageID\": {{PageID}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StagingURL}}/Vendor/v1/DeleteVendor/1",
+							"host": [
+								"{{StagingURL}}"
+							],
+							"path": [
+								"Vendor",
+								"v1",
+								"DeleteVendor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

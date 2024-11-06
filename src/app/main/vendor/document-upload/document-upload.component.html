@@ -1,0 +1,51 @@
+<section class="add-vendor">
+
+    <section class="breadcrumb-pagination">
+        <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+        <ul class="breadcrumb">
+            <li><a href="#">List of vendors</a></li>
+            <li><a href="#">Vendor details </a></li>
+            <li><a href="#">Material Documents</a></li>
+            <li><a href="#">Upload Document</a></li>
+        </ul>
+    </section>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+      <div class="section-header">
+          <h2 class="section-header-heading">Upload New Document</h2>
+      </div>
+
+      <div class="content-body">
+          <h4 class="section-sub-heading">Document:</h4>
+          <div class="content">
+
+            <mat-grid-list cols="6" rowHeight="77px" >
+              <mat-grid-tile colspan="6">
+                <label class="input-label"  for="documentName">Document Name *</label>
+                <input id="documentName" required name="documentName" formControlName="documentName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['documentName'].errors }" />
+              </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="6" rowHeight="77px" >
+                <mat-grid-tile colspan="6">
+                  <label class="input-label"  for="description">Description</label>
+                  <input id="description" name="description" formControlName="description" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['description'].errors }" />
+                </mat-grid-tile>
+              </mat-grid-list>
+
+              <mat-grid-list cols="6" rowHeight="77px" >
+                <mat-grid-tile colspan="6">
+                  <label class="input-label"  for="uploadDocument">Upload Document *</label>
+                  <input type="file" id="uploadDocument" required name="uploadDocument"  (change)="uploadMultiFile($event)"  formControlName="uploadDocument" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['uploadDocument'].errors }" />
+                </mat-grid-tile>
+              </mat-grid-list>
+
+          </div>
+      </div>
+      <div class="bottom-buttons">
+        <button class="white-button">Cancel</button>
+        <button class="blue-button">Submit</button>
+      </div>
+    </form>
+    </section>

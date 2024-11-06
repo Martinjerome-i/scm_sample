@@ -1,0 +1,78 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-header">
+      <h3 class="section-header-heading">Add Material</h3>
+      <button class="close-button" (click)="closeDialog()">&times;</button>
+    </div>
+
+
+        <label>Material Category <span>*</span></label>
+        <mat-radio-group formControlName="radio">
+          <mat-radio-button *ngFor="let radio of radioButtons" [checked]="radio.Id === 1" [value]="radio.Id">{{radio.name}}</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <div class="row">
+          <label for="description">Description<span>*</span></label>
+          <input type="text" id="description" name="description" formControlName="description" required [ngClass]="{ 'is-invalid': submitted && f['description'].errors }">
+          <div class="col">
+            <label for="casNumber">CAS Number<span>*</span></label>
+            <input *ngIf="myForm.value.radio == 1" type="text" id="casNumber" name="casNumber" formControlName="casNumber" required [ngClass]="{ 'is-invalid': submitted && f['casNumber'].errors }" />
+            <div class="inputFieldAutoComplete" *ngIf="myForm.value.radio == 2">
+              <ng-autocomplete
+                [data]="materialList"
+                [searchKeyword]="keyword"
+                placeholder="Select CAS Number"
+                (selected)='selectEvent($event)'
+                (inputChanged)='onChangeSearch($event)'
+                (inputFocused)='onFocused($event)'
+                [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate">
+              </ng-autocomplete>
+
+              <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.CASNumber"></a>
+              </ng-template>
+
+              <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+              </ng-template>
+            </div>
+
+            <label for="itemNumber">Material Number<span>*</span></label>
+            <input type="text" id="itemNumber" name="itemNumber" formControlName="itemNumber" required [ngClass]="{ 'is-invalid': submitted && f['itemNumber'].errors }" />
+            <label for="currency">Currency<span>*</span></label>
+            <select *ngIf="myForm.value.radio == 1" name="Currency Name" id="currency" [(ngModel)]="currencyNameSelect" required [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let currencyName of currencyList" [value]="currencyName.CurrencyID">{{ currencyName.CurrencyName }}</option>
+            </select>
+            <input *ngIf="myForm.value.radio == 2" type="text" id="currency" name="currency" formControlName="currency" required [ngClass]="{ 'is-invalid': submitted && f['currency'].errors }" />
+            <label for="price">Quoted Price<span>*</span></label>
+            <input type="text" id="price" name="price" formControlName="price" required [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"/>
+            <label for="materialStatus">Material Status</label>
+            <select name="Material Status" id="materialStatus" [(ngModel)]="materialStatusSelect" required [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let materialStatus of materialStatusList" [value]="materialStatus.MaterialStatusID">{{ materialStatus.MaterialStatusCode }}</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="plant">Plant<span>*</span></label>
+            <input type="text" id="plant" name="plant" formControlName="plant" required [ngClass]="{ 'is-invalid': submitted && f['plant'].errors }">
+            <label for="materialType">Material Type<span>*</span></label>
+            <select *ngIf="myForm.value.radio == 1" name="Material Type" id="materialType" [(ngModel)]="materialTypeSelect" required [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let materialType of materialTypeList" [value]="materialType.MaterialTypeID">{{ materialType.MaterialTypeName }}</option>
+            </select>
+            <input *ngIf="myForm.value.radio == 2" type="text" id="materialType" name="materialType" formControlName="materialType" required [ngClass]="{ 'is-invalid': submitted && f['materialType'].errors }" />
+            <label for="unitType">Unit Type<span>*</span></label>
+            <select *ngIf="myForm.value.radio == 1" name="Unit Type" id="unitType" [(ngModel)]="unitTypeSelect" required [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let unitType of unitTypeList" [value]="unitType.UnitID">{{ unitType.UnitName }}</option>
+            </select>
+            <input *ngIf="myForm.value.radio == 2" type="text" id="unitType" name="unitType" required [ngClass]="{ 'is-invalid': submitted && f['unitType'].errors }" />
+            <label for="leadTime">Lead Time</label>
+            <input type="text" id="leadTime" name="leadTime" formControlName="leadTime" required [ngClass]="{ 'is-invalid': submitted && f['leadTime'].errors }">
+            <label for="uploadDocuments">Upload Documents</label>
+            <input type="file" id="uploadDocuments" name="uploadDocuments" required (change)="uploadMultiFile($event)" [ngClass]="{ 'is-invalid': submitted && f['uploadDocuments'].errors }">
+          </div>
+        </div>
+        </div>
+    <div class="popup-buttons">
+      <button class="white-button" (click)="closeDialog()">Cancel</button>
+      <button class="blue-button">Add</button>
+    </div>
+</form>

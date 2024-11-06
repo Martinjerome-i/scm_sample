@@ -1,0 +1,157 @@
+<section class="checklist">
+  <div class="section-header">
+    <h2 class="section-header-heading">List of checklists</h2>
+    <div class="section-header-buttons">
+      <button class="white-small-button" (click)="panel1.toggle()"><img src="assets/filter.png" alt="filter-icon">Filter</button>
+    </div>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel #panel1 [hideToggle]="true">
+      <div class="filter-menu">
+        <span>
+            <a href="#" ><img src="assets/Icon.png" alt=""></a>
+            <input type="text" placeholder="Checklist Name">
+        </span>
+        <span>
+            <input type="text" placeholder="Select checklist company">
+            <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+        </span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Choose Vendor-Material and Template</ng-template>
+        <mat-grid-list cols="3" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <div class="inputFieldAutoComplete">
+              <ng-autocomplete
+                [data]="vendorList"
+                [searchKeyword]="keywordVendor"
+                placeholder="Select Vendor"
+                (selected)='selectEventVendor($event)'
+                (inputChanged)='onChangeSearchVendor($event)'
+                (inputFocused)='onFocusedVendor($event)'
+                [itemTemplate]="itemTemplateVendor"
+                [notFoundTemplate]="notFoundTemplateVendor">
+              </ng-autocomplete>
+
+              <ng-template #itemTemplateVendor let-item>
+                <a [innerHTML]="item.CompanyName"></a>
+              </ng-template>
+
+              <ng-template #notFoundTemplateVendor let-notFound>
+                <div [innerHTML]="notFound"></div>
+              </ng-template>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="inputFieldAutoComplete">
+              <ng-autocomplete
+                [data]="materialList"
+                [searchKeyword]="keywordMaterial"
+                placeholder="Select CAS Number"
+                (selected)='selectEventMaterial($event)'
+                (inputChanged)='onChangeSearchMaterial($event)'
+                (inputFocused)='onFocusedMaterial($event)'
+                [itemTemplate]="itemTemplateMaterial"
+                [notFoundTemplate]="notFoundTemplateMaterial">
+              </ng-autocomplete>
+
+              <ng-template #itemTemplateMaterial let-item>
+                <a [innerHTML]="item.CASNumber"></a>
+              </ng-template>
+
+              <ng-template #notFoundTemplateMaterial let-notFound>
+                <div [innerHTML]="notFound"></div>
+              </ng-template>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="inputFieldAutoComplete">
+              <ng-autocomplete
+                [data]="templateList"
+                [searchKeyword]="keywordTemplate"
+                placeholder="Select Template"
+                (selected)='selectEventTemplate($event)'
+                (inputChanged)='onChangeSearchTemplate($event)'
+                (inputFocused)='onFocusedTemplate($event)'
+                [itemTemplate]="itemTemplateTemplate"
+                [notFoundTemplate]="notFoundTemplateTemplate">
+              </ng-autocomplete>
+
+              <ng-template #itemTemplateTemplate let-item>
+                <a [innerHTML]="item.TemplateCode"></a>
+              </ng-template>
+
+              <ng-template #notFoundTemplateTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+              </ng-template>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <div>
+          <button class="blue-button" (click)="selectVendorMaterialTemplate()" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Select Question</ng-template>
+        <section class="checklist">
+          <div class="section-header">
+            <h2 class="section-header-heading">List of questions</h2>
+            <div class="section-header-buttons">
+              <button class="white-small-button" (click)="panel1.toggle()"><img src="assets/filter.png" alt="filter-icon">Filter</button>
+            </div>
+          </div>
+          <mat-accordion>
+            <mat-expansion-panel #panel1 [hideToggle]="true">
+              <div class="filter-menu">
+                <span>
+                    <a href="#" ><img src="assets/Icon.png" alt=""></a>
+                    <input type="text" placeholder="Question Name">
+                </span>
+                <span>
+                    <input type="text" placeholder="Select question company">
+                    <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+                </span>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <div class="question-box" *ngFor="let i of checklistQuestionList">
+            <div class="question">
+              <input type="checkbox" class="selectBoxDesign" (change)="changeQuestionSection(i.CheckListQuestionID)" placeholder="Checkbox Option" />
+              <p>{{ i.QuestionTitle }} <span>*</span></p>
+            </div>
+            <div class="answer">
+              <input *ngIf="i.QuestionTypeID == 1" class="inputField" type="text">
+              <textarea *ngIf="i.QuestionTypeID == 2" class="inputField" style="height: 200px;"></textarea>
+              <div *ngFor="let option of i.Options">
+                <input *ngIf="i.QuestionTypeID == 3" class="optionDesign" type="radio" placeholder="Radio Option" />
+                <input *ngIf="i.QuestionTypeID == 4" class="optionDesign" type="checkbox" placeholder="Checkbox Option" />
+                <label class="input-label">{{ option.QuestionValue }}</label>
+              </div>
+              <input *ngIf="i.QuestionTypeID == 5" class="inputField" type="file">
+              <input *ngIf="i.QuestionTypeID == 6" class="inputField" type="date">
+              <input *ngIf="i.QuestionTypeID == 7" class="inputField" type="datetime-local">
+            </div>
+          </div>
+        </section>
+        <div>
+          <button class="blue-button" (click)="selectVendorMaterialTemplateQuestion()" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</section>

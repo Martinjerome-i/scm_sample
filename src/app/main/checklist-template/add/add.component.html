@@ -1,0 +1,32 @@
+<section class="breadcrumb-pagination">
+  <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+  <ul class="breadcrumb">
+    <li><a href="#">List of Checklists</a></li>
+    <li><a href="#">Add Checklist</a></li>
+  </ul>
+</section>
+<section class="add-vendor">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="content-body">
+      <br>
+      <h4 class="section-sub-heading">Vendor Details:</h4>
+      <br>
+      <div class="content">
+        <mat-grid-list cols="2" rowHeight="77px" [gutterSize]= "'15px'">
+          <mat-grid-tile>
+            <label class="input-label" for="TemplateCode">Template Code</label>
+            <input id="TemplateCode" name="TemplateCode" formControlName="TemplateCode" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['TemplateCode'].errors }" />
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <label class="input-label"  for="TemplateName">Template Name</label>
+            <input id="TemplateName" name="TemplateName" formControlName="TemplateName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['TemplateName'].errors }" />
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+    <div class="bottom-buttons">
+      <button class="white-button">Cancel</button>
+      <button class="blue-button">Submit</button>
+    </div>
+  </form>
+</section>

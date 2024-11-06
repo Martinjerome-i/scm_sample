@@ -1,0 +1,95 @@
+<section class="add-vendor">
+
+    <section class="breadcrumb-pagination">
+        <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+        <ul class="breadcrumb">
+            <li><a href="#">List of vendors</a></li>
+            <li><a href="#">Vendor details page</a></li>
+            <li><a href="#">Negotiate</a></li>
+        </ul>
+    </section>
+    
+    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
+    
+      <div class="section-header">
+          <h2 class="section-header-heading">Negotiation Window<span class="new">New</span></h2>
+          <div class="section-header-buttons">
+              <button class="transparent-button">Save</button>
+          </div>
+      </div>
+    
+      <div class="content-body">
+          <h4 class="section-sub-heading">Details:</h4>
+          <div class="content">
+    
+            <mat-grid-list cols="6" rowHeight="77px">
+              <mat-grid-tile colspan="3">
+                <label class="input-label"  for="purchaseRequest">Purchase Request Number (Optional)</label>
+                <input id="purchaseRequest" name="purchaseRequest" class="inputField" placeholder="" />
+              </mat-grid-tile>
+            </mat-grid-list>
+            
+            <mat-grid-list cols="2" rowHeight="77px">
+              <mat-grid-tile>
+                <label class="input-label"  for="lastName">Vendor Company Name</label>
+                <input id="lastName" name="lastName" class="inputField" placeholder=""/>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <label class="input-label"  for="companyName">Material Name</label>
+                <input id="companyName" name="companyName" class="inputField" placeholder=""/>
+              </mat-grid-tile>
+            </mat-grid-list>
+    
+            <mat-grid-list cols="2" rowHeight="77px">
+              <mat-grid-tile>
+                <label class="input-label"  for="contactNo">Qty <span class="notify-green">(Add New Quantity)</span></label>
+                <input id="contactNo" name="contactNo" class="inputField" placeholder=""/>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <label class="input-label"  for="alternateContactNo">Unit of measurement</label>
+                <input id="alternateContactNo" name="alternateContactNo" class="inputField" placeholder=""/>
+              </mat-grid-tile>
+            </mat-grid-list>
+    
+            <mat-grid-list cols="3" rowHeight="77px">
+              <mat-grid-tile>
+                <label class="input-label"  for="street3">Currency</label>
+                <input id="street3" name="street3" class="inputField" placeholder="" />
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <label class="input-label"  for="street4">Market Price</label>
+                <input id="street4" name="street4" class="inputField" placeholder="" />
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <label class="input-label"  for="street5">Quoted Price <span class="notify-green">(Add Offer Price)</span></label>
+                <input id="street5" name="street5" class="inputField" placeholder="" />
+              </mat-grid-tile>
+            </mat-grid-list>
+    
+            <mat-grid-list cols="6" rowHeight="77px">
+              <mat-grid-tile colspan="6">
+                <label class="input-label"  for="purchaseRequest">Lead Time</label>
+                <input id="purchaseRequest" name="purchaseRequest" class="inputField" placeholder="" />
+              </mat-grid-tile>
+            </mat-grid-list>
+    
+            <mat-grid-list cols="6" rowHeight="77px">
+              <mat-grid-tile cols="3">
+                <label class="input-label"  for="houseNumber">status</label>
+                <input id="houseNumber" name="houseNumber" class="inputField" placeholder=""/>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+      </div>
+    <!-- </form> -->
+    <!-- <div class="content-body">
+      <h4 class="section-sub-heading">Material Details:</h4>
+      <button class="transparent-button" mat-button (click)="openDialog()">Add Material</button>
+    </div> -->
+    
+    <div class="bottom-buttons">
+      <button class="white-button">Cancel</button>
+      <button class="blue-button">Submit</button>
+    </div>
+    </section>
+    

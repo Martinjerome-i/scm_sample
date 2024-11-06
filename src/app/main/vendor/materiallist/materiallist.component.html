@@ -1,0 +1,88 @@
+<section class="vendor-list">
+<div class="breadcrumb-pagination">
+    <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+    <ul class="breadcrumb">
+        <li><a href="#">List of vendors</a></li>
+        <li><a href="#">Vendor details page</a></li>
+    </ul>
+</div>
+
+<div class="page-details">
+    <div class="page-details-division">
+        <label class="page-details-label">Vendor ID</label><p class="page-details-content">{{VendorID}}</p>
+    </div>
+    <div class="page-details-division">
+        <label class="page-details-label">Company Name:</label> <p class="page-details-content">{{CompanyName}}</p>
+    </div>
+    <div class="page-details-division">
+        <label class="page-details-label">Contact Name:</label> <p class="page-details-content">{{ContactName}}</p>
+    </div>
+    <div class="page-details-division">
+        <label class="page-details-label">Contact No:</label> <p class="page-details-content">{{ContactNo}}</p>
+    </div>
+    <div class="page-details-division">
+        <label class="page-details-label">Status:</label> <p class="page-details-content"><span class="status approved">Approved</span></p>
+    </div>
+</div>
+
+<div class="search">
+    <span>
+        <input type="text" placeholder="Select vendor company">
+        <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+    </span>
+    <a href="/admin/Vendor/materialAdd">
+        <button class="blue-button">+ Add Material</button>
+    </a>
+</div>
+
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th class = "content-table-heading">CAS No.</th>
+                <th class = "content-table-heading">Item No.</th>
+                <th class = "content-table-heading">Material Name</th>
+                <!-- <th class = "content-table-heading">Classification</th> -->
+                <th class = "content-table-heading">Qualification Status</th>
+                <th class = "content-table-heading">Expected Closing Date</th>
+                <th class = "content-table-heading">Action</th>
+            </tr>
+        </thead>
+        <tbody class="content-table-body">
+            <tr class="content-table-rows" *ngFor="let i of vendorMaterialListPaginate">
+                <td class="content-table-data">{{i.CASNumber}}</td>
+                <td class="content-table-data">{{i.MaterialNumber}}</td>
+                <td class="content-table-data"><span class="status new">{{i.MaterialDescription}}</span>
+                <!-- <td class="content-table-data"><span class="status approved">Approved</span></td> -->
+                <td class="content-table-data"><span class="status {{i.StatusColorCode}}">{{i.MaterialStatus}}</span></td>
+                <td class="content-table-data">{{ i.LeadTime | date:"dd/MM/yyyy" }}</td>
+                <td class="content-table-data">
+                    <div>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_horiz</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openVendorQualification(i.VendorMaterialMappingDetailsID)">
+                          <span>Vendor Qualification</span>
+                        </button>
+                        <button mat-menu-item (click)="toDocumentList(i.VendorMaterialMappingDetailsID)">
+                          <span>View Document</span>
+                        </button>
+                        <button mat-menu-item (click)="toNegotiationList(i.VendorMaterialMappingDetailsID)">
+                          <span>Negotiate</span>
+                        </button>
+                      </mat-menu>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+  <mat-paginator [length]="vendormaterialList.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 (page)="OnPageChange($event)"
+showFirstLastButtons
+aria-label="Select page"
+class="pagination">
+</mat-paginator>
+</section>

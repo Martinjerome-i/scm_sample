@@ -1,0 +1,59 @@
+<section class="checklist">
+  <div class="section-header">
+    <h2 class="section-header-heading">List of checklists</h2>
+    <div class="section-header-buttons">
+      <button class="white-small-button" (click)="panel1.toggle()"><img src="assets/filter.png" alt="filter-icon">Filter</button>
+    </div>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel #panel1 [hideToggle]="true">
+      <div class="filter-menu">
+        <span>
+            <a href="#" ><img src="assets/Icon.png" alt=""></a>
+            <input type="text" placeholder="Checklist Name">
+        </span>
+        <span>
+            <input type="text" placeholder="Select checklist company">
+            <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+        </span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <table class="content-table">
+    <thead>
+    <tr>
+      <th class = "content-table-heading" style="width: 150px;">Template Code</th>
+      <th class = "content-table-heading" style="width: 300px">Template Name</th>
+      <th class = "content-table-heading" style="width: 300px;">CAS Number</th>
+      <th class = "content-table-heading" style="width: 200px;">Action</th>
+    </tr>
+    </thead>
+    <tbody class="content-table-body">
+    <tr class="content-table-rows" *ngFor="let i of vendorChecklistListPaginate">
+      <td class="content-table-data">{{i.TemplateCode}}</td>
+      <td class="content-table-data">{{i.TemplateName}}</td>
+      <td class="content-table-data">{{i.CASNumber}}</td>
+      <td class="content-table-data">
+        <div>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button (click)="answerQuestion(i.CheckListTemplateID)" mat-menu-item>
+              <span>Answer</span>
+            </button>
+          </mat-menu>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="vendorChecklistList.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 (page)="OnPageChange($event)"
+                 showFirstLastButtons
+                 aria-label="Select page"
+                 class="pagination">
+  </mat-paginator>
+</section>

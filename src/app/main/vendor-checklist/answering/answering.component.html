@@ -1,0 +1,30 @@
+<section class="add-vendor">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <section class="checklist">
+      <div class="section-header">
+        <h2 class="section-header-heading">Answer questions</h2>
+      </div>
+      <div class="question-box">
+        <div class="question">
+          <p>{{ questionTitle }} <span>*</span></p>
+        </div>
+        <div class="answer">
+          <input *ngIf="questionType == 1" formControlName="inputAnswer" class="inputField" type="text">
+          <textarea *ngIf="questionType == 2" formControlName="inputTextArea" class="inputField" style="height: 200px;"></textarea>
+          <div *ngFor="let option of optionList">
+            <input *ngIf="questionType == 3" [value]="option.QuestionOptionsID" formControlName="inputOption" (change)="onRadioSelected(option.QuestionValue)" class="optionDesign" type="radio" placeholder="Radio Option" />
+            <input *ngIf="questionType == 4" [value]="option.QuestionOptionsID" formControlName="inputCheckbox" (change)="onCheckbox(option.QuestionValue)" class="optionDesign" type="checkbox" placeholder="Checkbox Option" />
+            <label class="input-label">{{ option.QuestionValue }}</label>
+          </div>
+          <input *ngIf="questionType == 5" (change)="uploadMultiFile($event)" formControlName="inputFile" class="inputField" type="file">
+          <input *ngIf="questionType == 6" formControlName="inputDate" class="inputField" type="date">
+          <input *ngIf="questionType == 7" formControlName="inputDateTime" class="inputField" type="datetime-local">
+        </div>
+      </div>
+    </section>
+  </form>
+  <div class="bottom-buttons">
+    <button class="white-button">Cancel</button>
+    <button class="blue-button" (click)="onSubmit()">Submit</button>
+  </div>
+</section>

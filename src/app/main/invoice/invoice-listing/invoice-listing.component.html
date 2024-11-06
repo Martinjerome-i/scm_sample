@@ -1,0 +1,156 @@
+
+    
+    <div class="checklist">
+        <div class="heading">
+            <h2>Invoice and Payments</h2>
+            <div>      
+                <button class="btn4" onclick="openTabOne('filterOne');"><img src="assets/filter.png" alt="">Filter</button>
+            </div>
+        </div>
+        <div id="filterOne" class="openFilterOne">
+            <div class="filter">
+                <span class="search">
+                    <a href="#" ><img src="assets/Icon.png" alt=""></a>
+                    <input type="text" placeholder="Vendor Name">
+                </span>
+                <span>
+                    <input type="text" placeholder="Invoice/GRN Date*">
+                    <a href="#"><img src="assets/datepicker.png" alt=""></a>
+                </span>
+                <span>
+                    <input type="text" placeholder="Select Status">
+                    <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+                </span>
+            </div>
+        </div>
+        <div class="content-table">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 250px;">Invoice No</th>
+                            <th style="width: 250px;">Invoice Date</th>
+                            <th style="width: 250px;">P.O No.</th>
+                            <th style="width: 480px;">Vendor Company Name</th>
+                            <th style="width: 480px;">GRN Date</th>
+                            <th style="width: 350px;">Quality Status</th>
+                            <th style="width: 350px;">Payment Status</th>
+                            <th style="width: 250px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>22568</td>
+                            <td>01/01/2023</td>
+                            <td>22568</td>
+                            <td>Name of the Company</td>
+                            <td>01/01/2023</td>
+                            <td>Approved</td>
+                            <td><select name="payments" id="payments">
+                                <option value="Full">Full Payment</option>
+                                <option value="Partial">Partial Payment</option>
+                                <option value="Reject">Rejected</option>
+                              </select></td>
+                            <td><div><a href=""><img src="assets/download.png" alt=""></a></div></td>
+                        </tr>
+                        <tr style="background: #F7F7FC;">
+                            <td>22568</td>
+                            <td>01/01/2023</td>
+                            <td>22568</td>
+                            <td>Name of the Company</td>
+                            <td>01/01/2023</td>
+                            <td>Approved</td>
+                            <td><select name="payments" id="payments">
+                                <option value="Full">Full Payment</option>
+                                <option value="Partial">Partial Payment</option>
+                                <option value="Reject">Rejected</option>
+                              </select></td>
+                            <td><div><a href=""><img src="assets/download.png" alt=""></a></div></td>
+                        </tr>
+                        <tr>
+                            <td>22568</td>
+                            <td>01/01/2023</td>
+                            <td>22568</td>
+                            <td>Name of the Company</td>
+                            <td>01/01/2023</td>
+                            <td>Approved</td>
+                            <td><select name="payments" id="payments">
+                                <option value="Full">Full Payment</option>
+                                <option value="Partial">Partial Payment</option>
+                                <option value="Reject">Rejected</option>
+                              </select></td>
+                            <td><div><a href=""><img src="assets/download.png" alt=""></a></div></td>
+                        </tr>
+                        <tr style="background: #F7F7FC;">
+                            <td>22568</td>
+                            <td>01/01/2023</td>
+                            <td>22568</td>
+                            <td>Name of the Company</td>
+                            <td>01/01/2023</td>
+                            <td>Approved</td>
+                            <td><select name="payments" id="payments">
+                                <option value="Full">Full Payment</option>
+                                <option value="Partial">Partial Payment</option>
+                                <option value="Reject">Rejected</option>
+                              </select></td>
+                            <td><div><a href=""><img src="assets/download.png" alt=""></a></div></td>
+                        </tr>
+                        <tr>
+                            <td>22568</td>
+                            <td>01/01/2023</td>
+                            <td>22568</td>
+                            <td>Name of the Company</td>
+                            <td>01/01/2023</td>
+                            <td>Approved</td>
+                            <td><select name="payments" id="payments">
+                                <option value="Full">Full Payment</option>
+                                <option value="Partial">Partial Payment</option>
+                                <option value="Reject">Rejected</option>
+                              </select></td>
+                            <td><div><a href=""><img src="assets/download.png" alt=""></a></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-popup" id="myForm">
+            <form class="form-container">
+                <div class="form-content">
+                    <span onclick="closeForm()">&times;</span>
+                    <button>Edit</button>
+                    <button onclick="openDeleteForm()">Delete</button>
+                    <button onclick="myReminderFunction()">Send WhatsApp Reminder</button>
+                    <span class="reminderpopuptext" id="reminderPopup">WhatsApp remainder sent to “Vendor name” successfully</span>
+                </div>
+            </form>
+        </div>
+        <div class="form-delete-popup" id="mydeleteForm">
+            <form class="form-delete-container">
+                <div class="form-delete-content">
+                    <div class="heading">
+                        <h3><img src="assets/warning.png" alt="">Warning</h3>
+                    </div>
+                    <div class="content">
+                        <p>By deleting this vendor checklist will remove all its detail permanently. 
+                            You will not be able to retrieve back deleted data.</p>
+                    </div>
+                    <div class="footer">
+                        <button class="btn1" onclick="closeDeleteForm()">Cancel</button>
+                        <button class="btn2" type="delete" onclick="myDeleteFunction()">Delete</button>
+                        <span class="deletepopuptext" id="deletePopup">“Vendor name” checklist deleted successfully</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="flex-item pagination">
+        <a href="#">Item per page:</a>
+        <span class="box">
+            <a href="#"><p>10</p></a><img src="assets/drownarrow.png" alt="">
+        </span>
+        <a href="#" class="img">Page 1 of 10</a>
+        <a href="#" class="img"><img src="assets/leftend.png" alt=""></a>
+        <a href="#" class="img"><img src="assets/Leftarrow.png" alt=""></a>
+        <a href="#" class="img"><img src="assets/rightarrow.png" alt=""></a>
+        <a href="#" class="img"><img src="assets/rightend.png" alt=""></a>
+    </div>

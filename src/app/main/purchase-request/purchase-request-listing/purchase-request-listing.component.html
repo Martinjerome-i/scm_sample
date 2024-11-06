@@ -1,0 +1,205 @@
+
+<section class="checklist">
+  <div class="section-header">
+      <h2 class="section-header-heading">List of Purchase Request</h2>
+      <div class="section-header-buttons">
+          <button class="white-small-button" (click)="panel2.toggle()"><img src="assets/filter.png" alt="filter-icon">Filter</button>
+      </div>
+  </div>
+  <mat-accordion>
+      <mat-expansion-panel #panel2 [hideToggle]="true">
+      <div class="filter-menu">
+        <div class="search-row">
+          <span class="search-box">
+              <a class="a-left" href="#" ><img src="assets/Icon.png" alt=""></a>
+              <input type="text" placeholder="Vendor/Material Name">
+          </span>
+          <span class="search-box">
+              <input type="text" placeholder="Req date">
+              <a class="a-right" href="#"><img src="assets/datepicker.png" alt=""></a>
+          </span>
+          <span class="search-box">
+              <input type="text" placeholder="Select status">
+              <a class="a-right" href="#"><img src="assets/drownarrow.png" alt=""></a>
+          </span>
+        </div>
+      </div>
+      </mat-expansion-panel>
+  </mat-accordion>
+  <div class="content-table">
+      <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 250px;">Material</th>
+                <th style="width: 480px;">Vendor Company Name</th>
+                <th style="width: 480px;">Req. Date</th>
+                <th style="width: 350px;">PR Number</th>
+                <th style="width: 250px;">Qty</th>
+                <th style="width: 360px;">Market Price</th>
+                <th style="width: 360px;">Offer Price</th>
+                <th style="width: 250px;">Date/Time of Offer</th>
+                <th style="width: 250px;">Quoted Price</th>
+                <th style="width: 250px;">Date/Time of Quatation</th>
+                <th style="width: 250px;">Final Price</th>
+                <th style="width: 250px;">Lead Time</th>
+                <th style="width: 250px;">Status</th>
+                <th style="width: 250px;">Action</th>
+              </tr>
+            </thead>
+              <tbody>
+                  <tr class="content-table-rows">
+                    <td class="content-table-data">Lorium</td>
+                    <td class="content-table-data">Name of the Company</td>
+                    <td class="content-table-data">01/01/2023</td>
+                    <td class="content-table-data">015RT#</td>
+                    <td class="content-table-data">100</td>
+                    <td class="content-table-data">50.00</td>
+                    <td class="content-table-data">45.00</td>
+                    <td class="content-table-data">02/11/2023 10:45</td>
+                    <td class="content-table-data">44.00</td>
+                    <td class="content-table-data">02/11/2023 11:45</td>
+                    <td class="content-table-data">44.00</td>
+                    <td class="content-table-data">10 Days</td>
+                    <td class="content-table-data"><span class="status approved">Approved</span></td>
+                      <td class="content-table-data">
+                          <div>
+                          <button mat-icon-button [matMenuTriggerFor]="menu">
+                              <mat-icon>more_horiz</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                              <button (click)="toNegotiationList(2)" mat-menu-item>
+                                <span>Negotiate</span>
+                              </button>
+                              <button mat-menu-item>
+                                <span>Contact vendor</span>
+                              </button>
+                            </mat-menu>
+                          </div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <mat-paginator [length]="100"
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            showFirstLastButtons
+            aria-label="Select page"
+            class="pagination">
+  </mat-paginator>
+</section>
+
+  <!-- <div class="checklist">
+    <div class="heading">
+      <h2>List of Purchase Request</h2>
+      <div>
+        <button class="btn4" onclick="openTabOne('filterOne');"><img src="assets/filter.png" alt="">Filter</button>
+      </div>
+    </div>
+    <div id="filterOne" class="openFilterOne">
+      <div class="filter">
+                    <span class="search">
+                        <a href="#" ><img src="assets/Icon.png" alt=""></a>
+                        <input type="text" placeholder="Material Name">
+                    </span>
+        <span>
+                        <input type="text" placeholder="Pick a date">
+                        <a href="#"><img src="assets/datepicker.png" alt=""></a>
+                    </span>
+        <span>
+                        <input type="text" placeholder="Select status">
+                        <a href="#" ><img src="assets/drownarrow.png" alt=""></a>
+                    </span>
+      </div>
+    </div>
+    <div class="content-table">
+      <div class="table-scroll">
+        <table>
+          <thead>
+          <tr>
+            <th style="width: 250px;">Material</th>
+            <th style="width: 480px;">Vendor Company Name</th>
+            <th style="width: 480px;">Req. Date</th>
+            <th style="width: 350px;">PR Number</th>
+            <th style="width: 250px;">Qty</th>
+            <th style="width: 360px;">Market Price</th>
+            <th style="width: 360px;">Offer Price</th>
+            <th style="width: 250px;">Date/Time of Offer</th>
+            <th style="width: 250px;">Quoted Price</th>
+            <th style="width: 250px;">Date/Time of Quatation</th>
+            <th style="width: 250px;">Final Price</th>
+            <th style="width: 250px;">Lead Time</th>
+            <th style="width: 250px;">Status</th>
+            <th style="width: 250px;">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lorium</td>
+              <td>Name of the Company</td>
+              <td>01/01/2023</td>
+              <td>015RT#</td>
+              <td>100</td>
+              <td>50.00</td>
+              <td>45.00</td>
+              <td>02/11/2023 10:45</td>
+              <td>44.00</td>
+              <td>02/11/2023 11:45</td>
+              <td>44.00</td>
+              <td>10 Days</td>
+              <td><span class="status approved">Approved</span></td>
+              <td>
+                <div>
+                  <a href="/admin/PurchaseRequest/view"><img src="assets/Eye.png" alt=""></a>
+                  <img src="assets/dotsthree.png" alt="" onclick="openForm()">
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="form-popup" id="myForm">
+      <form class="form-container">
+        <div class="form-content">
+          <span onclick="closeForm()">&times;</span>
+          <button>Edit</button>
+          <button onclick="openDeleteForm()">Delete</button>
+          <button onclick="myReminderFunction()">Send WhatsApp Reminder</button>
+          <span class="reminderpopuptext" id="reminderPopup">WhatsApp remainder sent to “Vendor name” successfully</span>
+        </div>
+      </form>
+    </div>
+    <div class="form-delete-popup" id="mydeleteForm">
+      <form class="form-delete-container">
+        <div class="form-delete-content">
+          <div class="heading">
+            <h3><img src="assets/warning.png" alt="">Warning</h3>
+          </div>
+          <div class="content">
+            <p>By deleting this vendor checklist will remove all its detail permanently.
+              You will not be able to retrieve back deleted data.</p>
+          </div>
+          <div class="footer">
+            <button class="btn1" onclick="closeDeleteForm()">Cancel</button>
+            <button class="btn2" type="delete" onclick="myDeleteFunction()">Delete</button>
+            <span class="deletepopuptext" id="deletePopup">“Vendor name” checklist deleted successfully</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="flex-item pagination">
+    <a href="#">Item per page:</a>
+    <span class="box">
+                <a href="#"><p>10</p></a><img src="assets/drownarrow.png" alt="">
+            </span>
+    <a href="#" class="img">Page 1 of 10</a>
+    <a href="#" class="img"><img src="assets/leftend.png" alt=""></a>
+    <a href="#" class="img"><img src="assets/Leftarrow.png" alt=""></a>
+    <a href="#" class="img"><img src="assets/rightarrow.png" alt=""></a>
+    <a href="#" class="img"><img src="assets/rightend.png" alt=""></a>
+  </div> -->
+

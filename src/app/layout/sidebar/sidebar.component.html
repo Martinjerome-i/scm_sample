@@ -1,0 +1,28 @@
+<section class="sidebar">
+    <div class="brand-name">
+        <h2>SCM</h2>
+    </div>
+    <div class="menu-bar">
+        <ul *ngFor="let menu of menuList">
+            <button class="nav-link-list" (click)="callFunction(menu.PageID, menu.PageURL)">
+                <li class="nav-link-items">
+                  <img class="nav-link-icons" src="../assets/dashboard.png" alt="">
+                  <img class="nav-link-icons-focus" src="../assets/dashboardwhite.png" alt="">
+                  <span class="link-name">{{ menu.PageName }}</span>
+                </li>
+            </button>
+        </ul>
+    </div>
+    <div class="bottom-content">
+        <a class="nav-link-list" href="setting.html">
+            <li class="nav-link-items">
+                <img class="nav-link-icons" src="../assets/setting.png" alt=""><img class="nav-link-icons-focus" src="../assets/setting(1).png" alt="">&nbsp; <span class="link-name">Setting</span>
+            </li>
+        </a>
+        <button class="nav-link-list" (click)="logoutFunc()">
+            <li class="nav-link-items">
+                <img class="nav-link-icons" src="../assets/logout (3).png" alt=""><img class="nav-link-icons-focus" src="../assets/logoutwhite.png" alt="">&nbsp; <span class="link-name">Logout</span>
+            </li>
+        </button>
+    </div>
+</section>

@@ -1,0 +1,76 @@
+<section class="material-vendor-list">
+    <div class="breadcrumb-pagination">
+        <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+        <ul class="breadcrumb">
+            <li><a href="#">List of Material</a></li>
+            <li><a href="#">Material details</a></li>
+        </ul>
+    </div>
+    <div class="table-heading">
+        <div>
+            <label>Material Name:</label> <p>{{ MaterialDescription }}</p></div>
+        <div>
+            <label>Type:</label> <p>{{ MaterialTypeName }}</p></div>
+        <div>
+            <label>Info:</label> <p>{{ MaterialNumber }}</p></div>
+        <div>
+            <label>Category:</label> <p><span class="status approved">Existing</span></p>
+        </div>
+    </div>
+    <div class="search">
+        <span>
+            <input type="text" placeholder="Vendor name">
+            <a href="#"><img src="assets/drownarrow.png" alt=""></a>
+        </span>
+    </div>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th class = "content-table-heading" style="width: 150px;">CAS No.</th>
+                <th class = "content-table-heading" style="width: 150px">Item No.</th>
+                <th class = "content-table-heading" style="width: 150px;">Vendor Id</th>
+                <th class = "content-table-heading" style="width: 400px;">Vendor Company Name</th>
+                <th class = "content-table-heading" style="width: 300px;">Contact Name</th>
+                <th class = "content-table-heading" style="width: 300px;">Contact No</th>
+                <th class = "content-table-heading" style="width: 300px;">Vendor Status</th>
+                <th class = "content-table-heading" style="width: 200px;">Action</th>
+            </tr>
+        </thead>
+        <tbody class="content-table-body">
+            <tr class="content-table-rows" *ngFor="let i of vendorMaterialList">
+                <td class="content-table-data">{{ i.CASNumber }}</td>
+                <td class="content-table-data">{{ i.MaterialNumber }}</td>
+                <td class="content-table-data">{{ i.AccountNumber }}</td>
+                <td class="content-table-data">{{ i.CompanyName }}</td>
+                <td class="content-table-data">{{ i.ContactName }}</td>
+                <td class="content-table-data">{{ i.ContactNo }}</td>
+                <td class="content-table-data">New</td>
+                <td class="content-table-data">
+                    <div>
+                      <a href="/admin/Materials/qualification"><img src="assets/Eye.png" alt=""></a>
+                      <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_horiz</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <a href="/admin/Vendor/vendorDocument">
+                          <button mat-menu-item>
+                            View Documents
+                          </button>
+                        </a>
+                        <button mat-menu-item (click)="toNegotiationList(i.VendorMaterialMappingDetailsID)">
+                          <span>Negotiate</span>
+                        </button>
+                      </mat-menu>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    showFirstLastButtons
+    aria-label="Select page"
+    class="pagination">
+    </mat-paginator>
+</section>

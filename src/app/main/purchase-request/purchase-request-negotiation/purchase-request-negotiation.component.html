@@ -1,0 +1,99 @@
+<section class="add-vendor">
+  <section class="breadcrumb-pagination">
+      <a href="#"><img src="assets/Arrowleft.png" alt=""></a>
+      <ul class="breadcrumb">
+          <li><a href="#">List of vendors</a></li>
+          <li><a href="#">Vendor details page</a></li>
+          <li><a href="#">Negotiate</a></li>
+      </ul>
+  </section>
+  <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+    <div class="section-header">
+        <h2 class="section-header-heading">Negotiation Window<span class="new">New</span></h2>
+        <div class="section-header-buttons">
+            <button class="transparent-button">Save</button>
+        </div>
+    </div>
+    <div class="content-body">
+        <h4 class="section-sub-heading">Details:</h4>
+        <div class="content">
+          <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'">
+            <mat-grid-tile colspan="3">
+              <label class="input-label"  for="purchaseRequestNumber">Purchase Request Number (Optional)</label>
+              <input id="purchaseRequestNumber" name="purchaseRequestNumber" formControlName="purchaseRequestNumber" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['purchaseRequest'].errors }" />
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+              <label class="input-label"  for="vendorName">Vendor Name</label>
+              <input id="vendorName" name="vendorName" formControlName="vendorName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['vendorName'].errors }" />
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="8" rowHeight="77px" [gutterSize]= "'15px'">
+            <mat-grid-tile colspan="2">
+              <label class="input-label"  for="casNumber">CAS Number(Optional)</label>
+              <input id="casNumber" name="casNumber" formControlName="casNumber" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['casNO'].errors }" />
+            </mat-grid-tile>
+            <mat-grid-tile colspan="4">
+              <label class="input-label"  for="materialName">Material Name</label>
+              <input id="materialName" name="materialName" formControlName="materialName" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['materialName'].errors }" />
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+              <label class="input-label"  for="materialType">Material Type</label>
+              <input id="materialType" name="materialType" formControlName="materialType" class="inputField" placeholder="" [ngClass]="{ 'is-invalid': submitted && f['materialType'].errors }" />
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="8" rowHeight="77px" [gutterSize]= "'15px'">
+            <mat-grid-tile colspan="2">
+              <label class="input-label"  for="qtyAdd">Qty <span class="notify-green">(Add New Quantity)</span></label>
+              <input id="qtyAdd" name="qtyAdd" formControlName="qtyAdd" class="inputField" placeholder=""/>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+              <label class="input-label"  for="unitMeasure">Unit of measurement</label>
+              <input id="unitMeasure" name="unitMeasure" formControlName="unitMeasure" class="inputField" placeholder=""/>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+              <label class="input-label" for="currency">Currency</label>
+              <input id="currency" name="currency" formControlName="currency" class="inputField" placeholder=""/>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+              <label class="input-label" for="marketPrice">Market Price</label>
+              <input id="marketPrice" name="marketPrice" formControlName="marketPrice" class="inputField" placeholder=""/>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="4" rowHeight="77px" [gutterSize]= "'15px'">
+            <mat-grid-tile>
+              <label class="input-label"  for="quotedPrice">Quoted Price</label>
+              <input id="quotedPrice" name="quotedPrice" formControlName="quotedPrice" class="inputField" placeholder=""/>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <label class="input-label"  for="revisedPrice">Vendor Revised Price</label>
+              <input id="revisedPrice" name="revisedPrice" formControlName="revisedPrice" class="inputField" placeholder=""/>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <label class="input-label"  for="lastPurchasedPrice">Last Purchase Price</label>
+              <input id="lastPurchasedPrice" name="lastPurchasedPrice" formControlName="currency" class="inputField" placeholder=""/>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <label class="input-label" for="offerPrice">Offer Price</label>
+              <input id="offerPrice" name="offerPrice" formControlName="offerPrice" class="inputField" placeholder="" />
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="6" rowHeight="77px" [gutterSize]= "'15px'">
+            <mat-grid-tile colspan="3">
+              <label class="input-label" for="leadTime">Lead Time</label>
+              <input id="leadTime" name="leadTime" formControlName="leadTime" class="inputField" placeholder="" />
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+              <label class="input-label" for="negotiationStatus">Status</label>
+              <select name="negotiationStatus" id="negotiationStatus" [(ngModel)]="negotiationStatusSelect" required [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let negotiationStatus of negotiationStatusList" [value]="negotiationStatus.NegotiationStatusID">{{ negotiationStatus.NegotiationStatus }}</option>
+              </select>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+    </div>
+  </form>
+  <div class="bottom-buttons">
+    <button class="white-button">Cancel</button>
+    <button class="blue-button" (click)="onSubmit()">Submit</button>
+  </div>
+</section>
